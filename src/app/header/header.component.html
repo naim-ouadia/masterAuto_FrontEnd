@@ -1,45 +1,38 @@
 <nav class="navbar navbar-expand-sm  navbar-dark fixed-top">
 
-  <a class="navbar-brand" href="#"><font color="#FF6F00" face="cursive" size="6"><strong>Master Auto</strong></font></a>
+  <a class="navbar-brand" routerLink="Accueil"><font color="#FF6F00" face="cursive" size="6"><strong>MasterAuto</strong></font><font face="cursive">.com</font></a>
   <div class="ml-5">
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Accueil</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="Accueil">Accueil</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Assitance Technique</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="Ath">Assitance Technique</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Tunnig</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="Tuning">Tuning</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-          Maintenance
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">RDV à Domicile</a>
-          <a class="dropdown-item" href="#">RDV au magasin</a>
-
-        </div>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="Maintenance">Maintenance</a>
       </li>
     </ul>
   </div>
   <div class="ml-auto">
 
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contacts</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="Contacts">Contacts</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"><i class="fa fa-map-marker"></i></a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop2" data-toggle="dropdown">
           <i class="fa fa-user"></i>
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Se Connecter</a>
-          <a class="dropdown-item" href="#">S'enregistrer</a>
+          <a class="dropdown-item" routerLink="Client/Conexion">Se Connecter</a>
+          <a class="dropdown-item" routerLink="Client/Inscription">S'enregistrer</a>
         </div>
       </li>
       <li class="nav-item">

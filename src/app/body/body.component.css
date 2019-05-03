@@ -23,3 +23,21 @@
 .carousel {
   padding-top: 70px;
 }
+
+i {
+  font-size: 80px;
+  color: #FF6F00;
+}
+
+.fa:hover {
+  font-size: 90px;
+  color: black;
+}
+
+.block-icons{
+  margin: 80px;
+}
+#test {
+  background-image: url("../../assets/images/mecanical.jpg");
+}
+
