@@ -8,6 +8,7 @@ import {ContactsComponent} from './contacts/contacts.component';
 import {ConnexionComponent} from './client/connexion/connexion.component';
 import {InscriptionComponent} from './client/inscription/inscription.component';
 import {RdvComponent} from './rdv/rdv.component';
+import {ServiceRapideComponent} from './service-rapide/service-rapide.component';
 
 const routes: Routes = [
   {path: 'Accueil', component: BodyComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'Contacts', component: ContactsComponent},
   {path: 'Client/Conexion', component: ConnexionComponent},
   {path: 'Client/Inscription', component: InscriptionComponent},
-  {path: 'RDV', component: RdvComponent},
+  {path: 'Maintenance/Rdv', component: RdvComponent},
+  {path: 'ServiceRapide', component: ServiceRapideComponent},
   {path: '', component: BodyComponent}
 ];
 

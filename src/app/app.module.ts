@@ -17,6 +17,7 @@ import {ContactsComponent} from './contacts/contacts.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { RdvComponent } from './rdv/rdv.component';
+import { ServiceRapideComponent } from './service-rapide/service-rapide.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { RdvComponent } from './rdv/rdv.component';
     ConnexionComponent,
     AdminComponent,
     ContactsComponent,
-    RdvComponent
+    RdvComponent,
+    ServiceRapideComponent
   ],
   imports: [
     BrowserModule,

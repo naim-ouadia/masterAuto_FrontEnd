@@ -18,6 +18,8 @@ export class AppComponent implements OnInit {
   constructor(private authService: AuthentificationService) {
   }
 
+
+
   isAdmin() {
     return this.authService.isAdmin();
   }
@@ -25,6 +27,7 @@ export class AppComponent implements OnInit {
   isUser() {
     return this.authService.isUser();
   }
+
 
 }
 
