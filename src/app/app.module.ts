@@ -18,6 +18,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { RdvComponent } from './rdv/rdv.component';
 import { ServiceRapideComponent } from './service-rapide/service-rapide.component';
+import { NotFound404Component } from './not-found404/not-found404.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ServiceRapideComponent } from './service-rapide/service-rapide.componen
     AdminComponent,
     ContactsComponent,
     RdvComponent,
-    ServiceRapideComponent
+    ServiceRapideComponent,
+    NotFound404Component
   ],
   imports: [
     BrowserModule,
