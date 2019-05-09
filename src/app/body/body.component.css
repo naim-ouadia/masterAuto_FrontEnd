@@ -37,9 +37,6 @@ i {
 .block-icons{
   margin: 80px;
 }
-#test {
-  background-image: url("../../assets/images/mecanical.jpg");
-}
 
 #map {
   position: absolute;
