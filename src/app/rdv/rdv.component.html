@@ -1,0 +1,52 @@
+<div class="div"></div>
+<h2>Formulaire</h2>
+<p>Merci de selectionner les </p>
+<div class="container">
+
+  <select class="btn   dropdown-toggle">
+    <option> Marque</option>
+    <option *ngFor="let m of marques"> {{m.nomMarque}}</option>
+  </select>
+  <select class="btn   dropdown-toggle">
+    <option> Model</option>
+    <option *ngFor="let mod of models"> {{mod.nomModel}} | {{mod.dateModel}}</option>
+  </select>
+  <select class="btn   dropdown-toggle">
+    <option> Catégorie</option>
+    <option *ngFor="let c of categories"> {{c.nomCategorie}}</option>
+  </select>
+  <select class="btn   dropdown-toggle">
+    <option> Type de Carburant</option>
+    <option *ngFor="let carb of carburants"> {{carb.nomCarburant}}</option>
+  </select>
+</div>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Date</th>
+    <th scope="col">9h00 - 11h00</th>
+    <th scope="col">11h00 - 13h00</th>
+    <th scope="col">14h00 - 16h00</th>
+    <th scope="col">16h00 - 18h00</th>
+  </tr>
+  </thead>
+  <tbody *ngIf="dates">
+  <tr *ngFor="let d of dates">
+    <th scope="row">{{d | date:'dd-LL-yyyy'}}</th>
+    <td><div class="rdv-case" href="#">test</div></td>
+    <td>test</td>
+    <td>test</td>
+    <td>test</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="md-form">
+  <label for="form7">Commentaire</label>
+  <textarea id="form7" class="md-textarea form-control" rows="3"></textarea>
+
+</div>
+<div class="container div-validation">
+  <button class="btn btn-outline-success">Valider</button>
+  <button class="btn btn-outline-success">imprimer le recu</button>
+</div>

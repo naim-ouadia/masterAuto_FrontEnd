@@ -1,0 +1,101 @@
+.first-div {
+  background-image: url("../../assets/images/Maintenance1.jpg");
+  background-color: #cccccc;
+  height: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.second-div {
+  /*position: absolute;*/
+  top: 100px;
+  left: 80px;
+  height: 400px;
+  width: 200px;
+  background-color: #FF6F00;
+  border-radius: 10px;
+  opacity: 0.6;
+}
+
+.second-div:hover {
+  opacity: 1;
+  height: 410px;
+  width: 200px;
+}
+
+.btn {
+  background-color: black;
+  color: white;
+
+}
+
+.btn:hover {
+  background-color: white;
+  color: black;
+  border-color: black;
+}
+
+.encre {
+  position: relative;
+  top: -60px;
+  visibility: hidden;
+}
+
+.div3 {
+  color: white;
+  margin-left: 70px;
+}
+
+.div4 {
+  padding-left: 70px;
+}
+
+.div5 {
+  padding-left: 60px;
+}
+
+.p {
+  font-size: medium;
+}
+
+.logo-div {
+  padding-left: 150px;
+
+}
+
+.logo-div2 {
+  padding-left: 300px;
+}
+
+.logo {
+  padding: 20px;
+}
+
+.rdv-div {
+  background-color: black;
+  color: white;
+  width: 1349px;
+  height: 70px;
+  text-align: center;
+}
+
+.btn2 {
+  cursor: pointer;
+  padding: 16px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  background-color: black;
+  color: white;
+  border: 2px solid #FF6F00;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.btn2:hover {
+  color: black;
+  background-color: white;
+}

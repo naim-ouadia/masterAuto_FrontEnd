@@ -1,0 +1,104 @@
+<br><br><br>
+<div class="first-div">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 second-div">
+        <div class="card-body ">
+          <div class="div3">
+            <div class="div4">
+              <h1><i class="fa fa-wrench"></i></h1>
+            </div>
+            <h2>Mécanique </h2>
+          </div>
+          <p>Entretien, la maintenance (prévention des pannes), la réparation et le réglage des véhicules
+            automobiles
+            : moteur, boîte de vitesses, embrayage, suspension, direction... </p>
+          <a class="btn" href="/Maintenance#mecanique"> Voir Plus</a>
+        </div>
+      </div>
+      <div class="col-md-4 second-div" style="margin-left: 200px;">
+        <div class="card-body ">
+          <div class="div3">
+            <div class="div5">
+              <h1><i class="fa fa-laptop"></i></h1>
+            </div>
+            <h2>Diagnostic </h2>
+          </div>
+          <p> je suis un paragraphe</p>
+          <a class="btn" href="/Maintenance#diagnostic">Voir Plus</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="logo-div">
+  <img src="../../assets/images/Jaguar-logo.png" width="200" height="110" class="logo">
+  <img src="../../assets/images/Audi-logo.png" width="150" height="110" class="logo">
+  <img src="../../assets/images/Porsche-logo.png" width="200" height="110" class="logo">
+  <img src="../../assets/images/BMW-logo.png  " width="100" height="100" class="logo">
+  <img src="../../assets/images/GMC-logo.png  " width="300" height="110" class="logo">
+</div>
+<div class="logo-div2">
+  <img src="../../assets/images/Bosch.png" width="100" height="100" class="logo">
+  <img src="../../assets/images/GM.png" width="100" height="100" class="logo">
+  <img src="../../assets/images/Continental.png" width="100" height="100" class="logo">
+  <img src="../../assets/images/Hoosier-Racing.png" width="200" height="100" class="logo">
+  <img src="../../assets/images/Firestone-logo.png" width="200" height="100" class="logo">
+</div>
+
+<div class="container">
+  <hr>
+  <a name="mecanique" class="encre">1</a>
+  <h2>Mécanique</h2>
+  <p> Dans cette partie vous allez trouver tt ce qu il faut pour les entretien mecanqiue de votre voiture</p>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Réference</th>
+      <th scope="col">Nom du service</th>
+      <th scope="col">Discription</th>
+      <th scope="col">Prix</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="mecaniques">
+    <tr *ngFor="let m of mecaniques">
+      <th scope="row">{{m.id}}</th>
+      <td>{{m.nomMecanque}}</td>
+      <td>{{m.discription}}</td>
+      <td>{{m.prix}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <hr>
+  <a name="diagnostic" class="encre">2</a>
+  <h2>Diagnostic</h2>
+  <p> Dans cette partie vous allez trouver tt ce qu il faut pour les entretien diagnostic de votre voiture</p>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Réference</th>
+      <th scope="col">Nom du service</th>
+      <th scope="col">Discription</th>
+      <th scope="col">Prix</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="diagnostics">
+    <tr *ngFor="let d of diagnostics">
+      <th scope="row">{{d.id}}</th>
+      <td>{{d.nomDiagnostic}}</td>
+      <td>{{d.discription}}</td>
+      <td>{{d.prix}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="rdv-div">
+
+  <h3>Vous avez marre d'attendre la réparation de votre voiture ?
+    <button class="btn2" routerLink="../Rdv">Réservez moi un RDV</button>
+  </h3>
+</div>
+
+
