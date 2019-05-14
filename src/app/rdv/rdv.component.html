@@ -20,7 +20,8 @@
     <option *ngFor="let carb of carburants"> {{carb.nomCarburant}}</option>
   </select>
 </div>
-<table class="table table-hover">
+
+<table class="table table-hover table-bordered">
   <thead>
   <tr>
     <th scope="col">Date</th>
@@ -33,20 +34,20 @@
   <tbody *ngIf="dates">
   <tr *ngFor="let d of dates">
     <th scope="row">{{d | date:'dd-LL-yyyy'}}</th>
-    <td><div class="rdv-case" href="#">test</div></td>
-    <td>test</td>
-    <td>test</td>
-    <td>test</td>
+    <td class="rdv-case " (click)="onAjouterDate(d.toLocaleDateString()+' (9h-11h)')"></td>
+    <td class="rdv-case" (click)="onAjouterDate(d.toLocaleDateString() +' (11h-13h)')"></td>
+    <td class="rdv-case" (click)="onAjouterDate(d.toLocaleDateString() +' (14h-16h)')"></td>
+    <td class="rdv-case" (click)="onAjouterDate(d.toLocaleDateString() +' (16h-18h)')"></td>
   </tr>
   </tbody>
 </table>
 
 <div class="md-form">
-  <label for="form7">Commentaire</label>
-  <textarea id="form7" class="md-textarea form-control" rows="3"></textarea>
-
+  <label for="form7">Commentaire2</label>
+  <textarea id="form7" class="md-textarea form-control" rows="3" [(ngModel)]="commentaire"></textarea>
 </div>
 <div class="container div-validation">
-  <button class="btn btn-outline-success">Valider</button>
+  <button class="btn btn-outline-success" (click)="onSave()">Valider</button>
   <button class="btn btn-outline-success">imprimer le recu</button>
 </div>
+

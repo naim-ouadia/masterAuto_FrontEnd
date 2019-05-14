@@ -22,8 +22,6 @@ export class InscriptionComponent implements OnInit {
     this.registerClientService.registerClient(data);
   }
 
-  onVerification() {
 
-  }
 
 }

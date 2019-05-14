@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthentificationService} from '../../services/client/authentification.service';
 import {Router} from '@angular/router';
+import {InfosService} from "../../services/client/infos.service";
 
 @Component({
   selector: 'app-connexion',
@@ -16,7 +17,6 @@ export class ConnexionComponent implements OnInit {
   }
 
   onLogin(data) {
-    console.log(data);
     this.authService.login(data)
       .subscribe(resp => {
         let jwt = resp.headers.get('Authorization');
@@ -26,6 +26,7 @@ export class ConnexionComponent implements OnInit {
       }, err => {
         console.log(err);
       });
+
   }
 
   isAdmin() {

@@ -17,7 +17,6 @@ export class AuthentificationService {
   }
 
   login(data) {
-    console.log(this.http.get(this.host2));
     return this.http.post(this.host2 + '/login', data, {observe: 'response'});
   }
 
@@ -30,8 +29,9 @@ export class AuthentificationService {
   parseJwt() {
     let jwtHeler = new JwtHelperService();
     let objJwt = jwtHeler.decodeToken(this.jwt);
-    this.adresseMail = objJwt.obj;
+    this.adresseMail = objJwt.sub;
     this.roles = objJwt.roles;
+
   }
 
 

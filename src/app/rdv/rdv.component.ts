@@ -18,11 +18,14 @@ export class RdvComponent implements OnInit {
   carburants;
   dateDuJour: Date;
   i;
+  heure: string;
+
   dates: Array<Date> = [];
-  jours: Array<string> = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+  public commentaire: string = '';
 
 
   ngOnInit() {
+
     this.onDateRdv();
     this.onGetAllMarque();
     this.onGetAllModel();
@@ -63,10 +66,21 @@ export class RdvComponent implements OnInit {
   }
 
   onDateRdv() {
-    for (this.i = 0; this.i < 7; this.i++) {
+    for (this.i = 0; this.i < 6; this.i++) {
       this.dateDuJour = new Date();
       this.dateDuJour.setDate(this.dateDuJour.getDate() + this.i);
       this.dates.push(this.dateDuJour);
     }
   }
+
+  onAjouterDate(data) {
+
+    this.rdvService.saveDate(data.replace(/[/]/g, '-'));
+  }
+
+  onSave() {
+    this.rdvService.saveRdv(this.commentaire);
+  }
+
+
 }

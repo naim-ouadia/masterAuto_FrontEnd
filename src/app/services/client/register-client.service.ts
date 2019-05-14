@@ -15,7 +15,7 @@ export class RegisterClientService {
     this.http.post(this.host + '/users/register', data).subscribe(resp => {
       console.log('enregistrement ok');
     }), err => {
-      console.log("erreur d'enregister le client");
+      console.log('erreur de save le client');
     };
   }
 }

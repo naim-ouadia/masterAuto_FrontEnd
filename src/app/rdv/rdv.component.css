@@ -8,15 +8,19 @@
 .container {
   padding-left: 230px;
 }
-.btn{
+/*.btn{*/
 
-  margin: 20px;
-}
+  /*margin: 20px;*/
+/*}*/
 .div-validation{
   padding-left: 400px;
 }
 .rdv-case{
-  height: 30px;
-  width: 100px;
-  background-color: rebeccapurple;
+  cursor: pointer;
+  background-color:#FF6F00;
+  color: white;
+}
+.rdv-case:hover{
+  background-color: white;
+  color: #FF6F00;
 }
