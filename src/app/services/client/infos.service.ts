@@ -18,8 +18,8 @@ export class InfosService {
     this.jwt = localStorage.getItem('token');
     let jwtHeler = new JwtHelperService();
     let objJwt = jwtHeler.decodeToken(this.jwt);
-    // this.adresseMail = objJwt.sub;
-    // return this.http.get(this.host + '/adresseMail/' + this.adresseMail);
     return this.adresseMail = objJwt.sub;
   }
+
+
 }

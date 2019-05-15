@@ -9,7 +9,8 @@ import {InfosService} from '../services/client/infos.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private authService: AuthentificationService, private infos: InfosService) {
+
+  constructor(private authService: AuthentificationService) {
   }
 
   ngOnInit() {
@@ -24,7 +25,5 @@ export class HeaderComponent implements OnInit {
     this.authService.logOut();
   }
 
-  onloadUser() {
-    return this.infos.loadUser();
-  }
+
 }

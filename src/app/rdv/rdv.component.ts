@@ -17,8 +17,9 @@ export class RdvComponent implements OnInit {
   categories;
   carburants;
   dateDuJour: Date;
+  date;
   i;
-  heure: string;
+  cnt = false;
 
   dates: Array<Date> = [];
   public commentaire: string = '';
@@ -74,8 +75,21 @@ export class RdvComponent implements OnInit {
   }
 
   onAjouterDate(data) {
-
+    this.cnt = true;
+    this.date = data.replace(/[/]/g, '-');
     this.rdvService.saveDate(data.replace(/[/]/g, '-'));
+  }
+
+  onGetColor() {
+    if (this.cnt === true) {
+      return 'white';
+    } else if (this.cnt === false) {
+      return '#FF6F00';
+    }
+  }
+
+  onResetCnt() {
+    this.cnt = false;
   }
 
   onSave() {

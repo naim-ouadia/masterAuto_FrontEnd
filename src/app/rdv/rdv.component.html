@@ -31,21 +31,30 @@
     <th scope="col">16h00 - 18h00</th>
   </tr>
   </thead>
-  <tbody *ngIf="dates">
+  <tbody *ngIf="dates" class="tbody">
   <tr *ngFor="let d of dates">
     <th scope="row">{{d | date:'dd-LL-yyyy'}}</th>
-    <td class="rdv-case " (click)="onAjouterDate(d.toLocaleDateString()+' (9h-11h)')"></td>
-    <td class="rdv-case" (click)="onAjouterDate(d.toLocaleDateString() +' (11h-13h)')"></td>
-    <td class="rdv-case" (click)="onAjouterDate(d.toLocaleDateString() +' (14h-16h)')"></td>
-    <td class="rdv-case" (click)="onAjouterDate(d.toLocaleDateString() +' (16h-18h)')"></td>
+    <td [ngClass]="{'rdv-case':true ,'case-vide':cnt===true}"
+        (click)="onAjouterDate(d.toLocaleDateString() +' (9h-11h)')"></td>
+    <td [ngClass]="{'rdv-case':true ,'case-vide':cnt===true}"
+        (click)="onAjouterDate(d.toLocaleDateString() +' (11h-13h)')"></td>
+    <td [ngClass]="{'rdv-case':true ,'case-vide':cnt===true}"
+        (click)="onAjouterDate(d.toLocaleDateString() +' (14h-16h)')"></td>
+    <td [ngClass]="{'rdv-case':true ,'case-vide':cnt===true}"
+        (click)="onAjouterDate(d.toLocaleDateString() +' (16h-18h)')"></td>
   </tr>
   </tbody>
 </table>
-
+<div class="alert alert-success" *ngIf="cnt===true">Rdv prit pour le
+  <strong>{{date}}</strong> <a class="alert-link" (click)="onResetCnt()" style="cursor: pointer;"> . Cliquer ici pour
+    changer de date</a>.
+</div>
+<br>
 <div class="md-form">
-  <label for="form7">Commentaire2</label>
+  <label for="form7"><strong>Merci d'expliquer votre probléme ici :</strong></label>
   <textarea id="form7" class="md-textarea form-control" rows="3" [(ngModel)]="commentaire"></textarea>
 </div>
+
 <div class="container div-validation">
   <button class="btn btn-outline-success" (click)="onSave()">Valider</button>
   <button class="btn btn-outline-success">imprimer le recu</button>
