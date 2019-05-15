@@ -9,11 +9,13 @@ import {InfosService} from '../services/client/infos.service';
 })
 export class HeaderComponent implements OnInit {
 
+  user;
 
-  constructor(private authService: AuthentificationService) {
+  constructor(private authService: AuthentificationService, private infos: InfosService) {
   }
 
   ngOnInit() {
+    this.onGetUser();
   }
 
   isAuthenticated() {
@@ -25,5 +27,11 @@ export class HeaderComponent implements OnInit {
     this.authService.logOut();
   }
 
-
+  onGetUser() {
+    this.infos.getUser().subscribe(data => {
+      this.user = data;
+    }), err => {
+      console.log('error');
+    };
+  }
 }

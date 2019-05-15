@@ -19,6 +19,7 @@ import {FormsModule} from '@angular/forms';
 import { RdvComponent } from './rdv/rdv.component';
 import { ServiceRapideComponent } from './service-rapide/service-rapide.component';
 import { NotFound404Component } from './not-found404/not-found404.component';
+import { ParametresCompteComponent } from './parametres-compte/parametres-compte.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { NotFound404Component } from './not-found404/not-found404.component';
     ContactsComponent,
     RdvComponent,
     ServiceRapideComponent,
-    NotFound404Component
+    NotFound404Component,
+    ParametresCompteComponent
   ],
   imports: [
     BrowserModule,

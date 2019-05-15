@@ -21,5 +21,7 @@ export class InfosService {
     return this.adresseMail = objJwt.sub;
   }
 
-
+  getUser() {
+    return this.http.get(this.host + '/adresseMail/' + this.loadUser());
+  }
 }
