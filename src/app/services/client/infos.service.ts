@@ -15,10 +15,16 @@ export class InfosService {
   }
 
   loadUser() {
-    this.jwt = localStorage.getItem('token');
-    let jwtHeler = new JwtHelperService();
-    let objJwt = jwtHeler.decodeToken(this.jwt);
-    return this.adresseMail = objJwt.sub;
+    if (this.jwt == null || this.jwt === undefined) {
+      return 'naim@gmail.com';
+    } else {
+      this.jwt = localStorage.getItem('token');
+      let jwtHeler = new JwtHelperService();
+      let objJwt = jwtHeler.decodeToken(this.jwt);
+      this.adresseMail = objJwt.sub;
+      return this.adresseMail;
+    }
+
   }
 
   getUser() {

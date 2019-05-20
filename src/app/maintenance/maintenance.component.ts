@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {MecaniqueService} from '../services/maintenance/mecanique.service';
 import {DiagnosticService} from '../services/maintenance/diagnostic.service';
+import {AuthentificationService} from '../services/client/authentification.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-maintenance',
@@ -9,7 +11,8 @@ import {DiagnosticService} from '../services/maintenance/diagnostic.service';
 })
 export class MaintenanceComponent implements OnInit {
 
-  constructor(private mecaniqueService: MecaniqueService, private diagnosticService: DiagnosticService) {
+  constructor(private mecaniqueService: MecaniqueService, private diagnosticService: DiagnosticService, private authService: AuthentificationService,
+              private router: Router) {
   }
 
   mecaniques;
@@ -36,6 +39,15 @@ export class MaintenanceComponent implements OnInit {
       err => {
         console.log('error de chargement de la list');
       };
+  }
+
+  onAuthenticated() {
+    if (this.authService.isAuthenticated() == null) {
+      this.router.navigateByUrl('Client/Conexion');
+    } else {
+      this.router.navigateByUrl('Rdv');
+    }
+
   }
 
 }

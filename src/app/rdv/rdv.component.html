@@ -2,23 +2,23 @@
 <h2>Formulaire</h2>
 <p>Merci de selectionner les </p>
 <div class="container">
+    <select class="btn   dropdown-toggle" [(ngModel)]="selectedMarque">
 
-  <select class="btn   dropdown-toggle">
-    <option> Marque</option>
-    <option *ngFor="let m of marques"> {{m.nomMarque}}</option>
-  </select>
-  <select class="btn   dropdown-toggle">
-    <option> Model</option>
-    <option *ngFor="let mod of models"> {{mod.nomModel}} | {{mod.dateModel}}</option>
-  </select>
-  <select class="btn   dropdown-toggle">
-    <option> Catégorie</option>
-    <option *ngFor="let c of categories"> {{c.nomCategorie}}</option>
-  </select>
-  <select class="btn   dropdown-toggle">
-    <option> Type de Carburant</option>
-    <option *ngFor="let carb of carburants"> {{carb.nomCarburant}}</option>
-  </select>
+      <option> Marque</option>
+      <option *ngFor="let m of marques" (click)="selectedMarque===m">{{m.nomMarque}}</option>
+    </select>
+    <select class="btn   dropdown-toggle" [(ngModel)]="selectedModel">
+      <option> Model</option>
+      <option *ngFor="let mod of models" (click)="selectedModel===mod"> {{mod.nomModel}}</option>
+    </select>
+    <select class="btn   dropdown-toggle" [(ngModel)]="selectedCategorie">
+      <option> Catégorie</option>
+      <option *ngFor="let c of categories" (click)="selectedCategorie===c"> {{c.nomCategorie}}</option>
+    </select>
+    <select class="btn   dropdown-toggle" [(ngModel)]="selectedCarburant">
+      <option> Type de Carburant</option>
+      <option *ngFor="let carb of carburants" (click)="selectedCarburant===carb"> {{carb.nomCarburant}}</option>
+    </select>
 </div>
 
 <table class="table table-hover table-bordered">
@@ -56,7 +56,7 @@
 </div>
 
 <div class="container div-validation">
-  <button class="btn btn-outline-success" (click)="onSave()">Valider</button>
-  <button class="btn btn-outline-success">imprimer le recu</button>
+  <button class="btn btn-outline-success" (click)="onSaveRdv()">Valider</button>
+  <button class="btn btn-outline-success" >imprimer le recu</button>
 </div>
 

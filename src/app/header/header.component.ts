@@ -19,7 +19,6 @@ export class HeaderComponent implements OnInit {
   }
 
   isAuthenticated() {
-
     return this.authService.isAuthenticated();
   }
 
@@ -29,7 +28,7 @@ export class HeaderComponent implements OnInit {
 
   onGetUser() {
     this.infos.getUser().subscribe(data => {
-      this.user = data;
+        this.user = data;
     }), err => {
       console.log('error');
     };

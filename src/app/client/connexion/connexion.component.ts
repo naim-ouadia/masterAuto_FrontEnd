@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthentificationService} from '../../services/client/authentification.service';
 import {Router} from '@angular/router';
-import {InfosService} from "../../services/client/infos.service";
+
 
 @Component({
   selector: 'app-connexion',
@@ -27,14 +27,6 @@ export class ConnexionComponent implements OnInit {
         console.log(err);
       });
 
-  }
-
-  isAdmin() {
-    return this.authService.isAdmin();
-  }
-
-  isUser() {
-    return this.authService.isUser();
   }
 
 

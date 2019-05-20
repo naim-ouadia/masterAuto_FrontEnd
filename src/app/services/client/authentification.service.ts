@@ -27,16 +27,16 @@ export class AuthentificationService {
   }
 
   parseJwt() {
+
     let jwtHeler = new JwtHelperService();
     let objJwt = jwtHeler.decodeToken(this.jwt);
     this.adresseMail = objJwt.sub;
     this.roles = objJwt.roles;
-
   }
 
 
   loadToken() {
-    if (this.jwt == null) {
+    if (this.jwt == null || this.jwt === undefined) {
       return null;
     } else {
       this.jwt = localStorage.getItem('token');

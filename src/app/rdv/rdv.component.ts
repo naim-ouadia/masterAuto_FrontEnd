@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {GestionRdvService} from '../services/Rdv/gestion-rdv.service';
+import {GestionVoitureService} from '../services/voiture/gestion-voiture.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import {GestionRdvService} from '../services/Rdv/gestion-rdv.service';
 })
 export class RdvComponent implements OnInit {
 
-  constructor(private rdvService: GestionRdvService) {
+  constructor(private rdvService: GestionRdvService, private voitureService: GestionVoitureService) {
   }
 
   marques;
@@ -20,13 +21,15 @@ export class RdvComponent implements OnInit {
   date;
   i;
   cnt = false;
-
   dates: Array<Date> = [];
   public commentaire: string = '';
+  selectedMarque;
+  selectedModel;
+  selectedCarburant;
+  selectedCategorie;
 
 
   ngOnInit() {
-
     this.onDateRdv();
     this.onGetAllMarque();
     this.onGetAllModel();
@@ -80,20 +83,18 @@ export class RdvComponent implements OnInit {
     this.rdvService.saveDate(data.replace(/[/]/g, '-'));
   }
 
-  onGetColor() {
-    if (this.cnt === true) {
-      return 'white';
-    } else if (this.cnt === false) {
-      return '#FF6F00';
-    }
-  }
-
   onResetCnt() {
     this.cnt = false;
   }
 
-  onSave() {
-    this.rdvService.saveRdv(this.commentaire);
+  onSaveRdv() {
+    this.onSaveVoiture();
+    // this.rdvService.saveRdv(this.commentaire);
+  }
+
+  onSaveVoiture() {
+    this.voitureService.saveVoiture(this.selectedMarque, this.selectedModel, this.selectedCategorie, this.selectedCarburant);
+
   }
 
 
