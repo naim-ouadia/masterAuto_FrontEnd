@@ -33,13 +33,13 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop2" data-toggle="dropdown">
           <i class="fa fa-user"></i>
-          <span style="padding-left: 5px" *ngIf="isAuthenticated()">{{user.nom}}</span>
+          <span style="padding-left: 5px" *ngIf="isAuthenticated() && user1!=null">{{user1.nom}}</span>
         </a>
         <div class="dropdown-menu">
           <a class="dropdown-item" routerLink="Client/Conexion" *ngIf="!isAuthenticated()">Se Connecter</a>
           <a class="dropdown-item" routerLink="Client/Inscription" *ngIf="!isAuthenticated()">S'enregistrer</a>
           <a class="dropdown-item" routerLink="Accueil" *ngIf="isAuthenticated()" (click)="onLogOut()">Déconnexion</a>
-          <a class="dropdown-item" routerLink="Client/Inscription" *ngIf="isAuthenticated()">Paramétres du Compte</a>
+          <a class="dropdown-item" routerLink="ParametreCompte" *ngIf="isAuthenticated()">Paramétres du Compte</a>
         </div>
       </li>
       <li class="nav-item">

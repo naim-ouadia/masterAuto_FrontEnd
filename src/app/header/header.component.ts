@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthentificationService} from '../services/client/authentification.service';
-import {InfosService} from '../services/client/infos.service';
+
 
 @Component({
   selector: 'app-header',
@@ -9,16 +9,17 @@ import {InfosService} from '../services/client/infos.service';
 })
 export class HeaderComponent implements OnInit {
 
-  user;
 
-  constructor(private authService: AuthentificationService, private infos: InfosService) {
+  user1;
+
+  constructor(private authService: AuthentificationService) {
   }
 
   ngOnInit() {
-    this.onGetUser();
   }
 
   isAuthenticated() {
+    this.user1 = this.authService.user;
     return this.authService.isAuthenticated();
   }
 
@@ -26,11 +27,4 @@ export class HeaderComponent implements OnInit {
     this.authService.logOut();
   }
 
-  onGetUser() {
-    this.infos.getUser().subscribe(data => {
-        this.user = data;
-    }), err => {
-      console.log('error');
-    };
-  }
 }

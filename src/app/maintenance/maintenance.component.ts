@@ -17,6 +17,7 @@ export class MaintenanceComponent implements OnInit {
 
   mecaniques;
   diagnostics;
+  currentMecanique;
 
   ngOnInit() {
     this.onAllMecanique();
@@ -49,5 +50,64 @@ export class MaintenanceComponent implements OnInit {
     }
 
   }
+
+  onisAdmin() {
+    if (this.authService.isAuthenticated() && this.authService.isAdmin()) {
+      return true;
+    }
+  }
+
+  onDeleteMecanique(id) {
+    let c = confirm('Confirmer pour supprimer');
+    if (!c) return;
+    this.mecaniqueService.deleteMecanique(id).subscribe(data => {
+      this.onAllMecanique();
+    }, erro => {
+      console.log('error' + erro);
+    });
+  }
+
+  onDeleteDiagnistic(id) {
+    let c = confirm('Confirmer pour supprimer');
+    if (!c) return;
+    this.diagnosticService.deleteDiagnostic(id).subscribe(data => {
+      this.onAllDiagnostic();
+    }, err => {
+      console.log('error' + err);
+    });
+  }
+
+  onSaveMecanique(data) {
+    this.mecaniqueService.saveMecanique(data).subscribe(resp => {
+      this.onAllMecanique();
+    }, err => {
+      console.log('error');
+    });
+  }
+
+  onSaveDiagnostic(data) {
+    this.diagnosticService.saveDiagnostic(data).subscribe(resp => {
+      this.onAllDiagnostic();
+    }, err => {
+      console.log('error');
+    });
+  }
+
+  ongetElement(id) {
+    this.mecaniqueService.getElement(id).subscribe(data => {
+      this.currentMecanique = data;
+    }, err => {
+      console.log('error');
+    });
+  }
+
+  onUpdatElement(data) {
+    this.mecaniqueService.updateElement(this.currentMecanique.id, data).subscribe(data => {
+      this.onAllMecanique();
+    }, err => {
+      console.log('error');
+    });
+  }
+
 
 }

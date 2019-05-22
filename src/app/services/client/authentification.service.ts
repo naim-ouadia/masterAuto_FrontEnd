@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {JwtHelperService} from '@auth0/angular-jwt';
+import {Router} from '@angular/router';
+import {InfosService} from './infos.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +13,22 @@ export class AuthentificationService {
   jwt: string;
   adresseMail: string;
   roles: Array<string>;
+  user;
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router, private infos: InfosService) {
   }
 
   login(data) {
-    return this.http.post(this.host2 + '/login', data, {observe: 'response'});
+    this.http.post(this.host2 + '/login', data, {observe: 'response'}).subscribe(resp => {
+      let jwt = resp.headers.get('Authorization');
+      console.log(jwt);
+      this.saveToken(jwt);
+      this.router.navigateByUrl('Accueil');
+      this.loadNameUser();
+    }, err => {
+      console.log(err);
+    });
   }
 
   saveToken(jwt: string) {
@@ -69,5 +80,12 @@ export class AuthentificationService {
     this.roles = undefined;
   }
 
+  loadNameUser() {
+    this.infos.getUser().subscribe(data => {
+      this.user = data;
+    }, err => {
+      console.log('error');
+    });
+  }
 
 }

@@ -13,4 +13,13 @@ export class DiagnosticService {
   getAllDiagnostic() {
     return this.http.get(this.host + '/maintenance/AllDiagnostic');
   }
+
+  deleteDiagnostic(id) {
+    return this.http.delete(this.host + '/maintenance/DeleteDiagnostic/' + id);
+  }
+
+  saveDiagnostic(data) {
+    return this.http.post(this.host + '/maintenance/createDiagnostic', data);
+  }
+
 }
