@@ -18,6 +18,7 @@ export class MaintenanceComponent implements OnInit {
   mecaniques;
   diagnostics;
   currentMecanique;
+  currentDiagnostic;
 
   ngOnInit() {
     this.onAllMecanique();
@@ -93,21 +94,36 @@ export class MaintenanceComponent implements OnInit {
     });
   }
 
-  ongetElement(id) {
-    this.mecaniqueService.getElement(id).subscribe(data => {
+  ongetElementMecanique(id) {
+    this.mecaniqueService.getElementMecanique(id).subscribe(data => {
       this.currentMecanique = data;
     }, err => {
       console.log('error');
     });
   }
 
-  onUpdatElement(data) {
-    this.mecaniqueService.updateElement(this.currentMecanique.id, data).subscribe(data => {
+  onUpdatElementMecanique(data) {
+    this.mecaniqueService.updateElementMecanique(this.currentMecanique.id, data).subscribe(resp => {
       this.onAllMecanique();
     }, err => {
       console.log('error');
     });
   }
 
+  ongetElementDiagnostic(id) {
+    this.diagnosticService.getElementDiagnostic(id).subscribe(data => {
+      this.currentDiagnostic = data;
+    }, err => {
+      console.log('error');
+    });
+  }
+
+  onUpdatElementDiagnostic(data) {
+    this.diagnosticService.updateElementDiagnostic(this.currentDiagnostic.id, data).subscribe(resp => {
+      this.onAllDiagnostic();
+    }, err => {
+      console.log('error');
+    });
+  }
 
 }

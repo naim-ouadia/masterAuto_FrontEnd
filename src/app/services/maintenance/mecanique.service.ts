@@ -22,13 +22,12 @@ export class MecaniqueService {
     return this.http.post(this.host + '/maintenance/createMecanique', data);
   }
 
-  getElement(id) {
+  getElementMecanique(id) {
     return this.http.get(this.host + '/maintenance/getMecanique/' + id);
   }
 
-  updateElement(id, data) {
+  updateElementMecanique(id, data) {
     return this.http.put(this.host + '/maintenance/mecanique/' + id, data);
   }
-
 
 }

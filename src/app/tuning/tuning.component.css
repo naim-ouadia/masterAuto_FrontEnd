@@ -7,3 +7,77 @@
   background-size: cover;
   position: relative;
 }
+
+.c-stacked-nav__wrapper {
+  margin: 0 -6% 20px -13.5%
+}
+
+.c-stacked-nav__wrapper {
+  margin: 0
+}
+
+.c-stacked-nav__links.active {
+  display: block;
+}
+
+.c-stacked-nav__links {
+  width: 100%;
+  margin: 0;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  list-style-type: none;
+}
+
+.c-stacked-nav__links {
+  /*border-top: 2px solid #000;*/
+  /*border-bottom: 2px solid #000;*/
+  border: none;
+}
+
+.c-stacked-nav__links .c-stacked-nav__links--item {
+  position: relative;
+  font-size: 16px;
+  padding: 10px 0 10px 7%;
+  border-bottom: 1px solid #000;
+  width: 100%;
+}
+
+.c-stacked-nav__links .c-stacked-nav__links--item {
+  border-bottom: 2px solid #000;
+  font-size: 18px;
+}
+
+.c-stacked-nav__links .c-stacked-nav__links--item:last-child {
+  border-bottom: none;
+}
+
+.c-stacked-nav__links .c-stacked-nav__links--item:after {
+  position: absolute;
+  right: 10px;
+  top: 17px;
+  display: inline-block;
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-size: contain;
+}
+
+.c-stacked-nav__links .c-stacked-nav__links--link {
+  width: 85%;
+  display: inline-block;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+
+.c-stacked-nav__links .c-stacked-nav__links--link:hover {
+  text-decoration: none;
+}
+
+.c-stacked-nav__links .c-stacked-nav__links--item:after {
+  display: none;
+}
+
+/*.c-stacked-nav__links .c-stacked-nav__links--item:after {*/
+  /*background-image: url("../../assets/images/lavage2.jpg");*/
+/*}*/

@@ -1,3 +1,36 @@
 <br><br><br>
-  <div class="first-div"></div>
+<div class="first-div"></div>
+<br><br>
+<div class="row">
+  <div class="col-md-4">
+    <div class="c-stacked-nav__wrapper " style="width: 60%;">
+      <ul class="c-stacked-nav__links js-landing-nav">
+        <li class="c-stacked-nav__links--item" *ngFor="let t of tunings">
+          <a class="c-stacked-nav__links--link" href="#">{{t.nomTuning}} <i class="fa fa-chevron-right"
+                                                                            style="margin-left: 85px; color: #FF6F00"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!------------------------------------------------------------------------------------------------------------------>
+  <div class="col-md-8">
+    <div class="col-xs-4">
+      <div class="row featurette" *ngFor="let t of tunings">
+        <div [ngClass]="{'col-md-7':true,'order-md-2':onStyle()===1}">
+          <br>
+          <div style="margin-left:60px"><h2 class="featurette-heading">{{t.nomTuning}} <span
+            class="text-muted">{{t.prix}} DH.</span></h2>
+            <p class="lead">{{t.discription}}.</p></div>
+        </div>
+        <div class="col-md-5 order-md-1">
+          <img class="featurette-image img-responsive center-block" width="200" height="200"
+               src="assets/images/image_solde.jpg">
+        </div>
+      </div>
+      <hr class="featurette-divider">
+    </div>
+  </div>
+</div>
+<br><br>
+<!-------------------------------------------------------------------------------------------------------------------->
 
