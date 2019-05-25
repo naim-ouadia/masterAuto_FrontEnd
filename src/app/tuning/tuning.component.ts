@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {GestionTuningService} from '../services/tuning/gestion-tuning.service';
-import {HttpEventType, HttpResponse} from "@angular/common/http";
+import {HttpEventType, HttpResponse} from '@angular/common/http';
+import {AuthentificationService} from '../services/client/authentification.service';
 
 @Component({
   selector: 'app-tuning',
@@ -17,7 +18,7 @@ export class TuningComponent implements OnInit {
   private currentFileUpload;
   private tuning;
 
-  constructor(private tuningService: GestionTuningService) {
+  constructor(private tuningService: GestionTuningService, private authService: AuthentificationService) {
   }
 
   ngOnInit() {
@@ -31,6 +32,12 @@ export class TuningComponent implements OnInit {
     }, err => {
       console.log('error de chargement de liste');
     });
+  }
+
+  onisAdmin() {
+    if (this.authService.isAuthenticated() && this.authService.isAdmin()) {
+      return true;
+    }
   }
 
   onEditPhoto(data) {

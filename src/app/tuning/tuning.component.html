@@ -1,18 +1,28 @@
 <br><br><br>
-<div class="first-div"></div>
+<div class="first-div">
+  <div class="sec-div">
+<h1 class="title"><strong>Your Car , Your Style</strong> </h1>
+  </div>
+  <div class="third-div">
+  <p class="para"> <strong>Ne vous inquiétez pas à dire BYE pour l'ancien style de votre voiture</strong></p>
+  </div>
+</div>
+
 <br><br>
+<div class="container">
 <div class="row">
   <div class="col-md-4">
-    <div class="c-stacked-nav__wrapper " style="width: 60%;">
+    <div class="c-stacked-nav__wrapper " style="width: 80%;">
       <ul class="c-stacked-nav__links js-landing-nav">
         <li class="c-stacked-nav__links--item" *ngFor="let t of tunings">
-          <button (click)="onDeleteTuning(t.id)"><i class="fa fa-remove"></i></button>
-          <a class="c-stacked-nav__links--link" href="#">{{t.nomTuning}} <i class="fa fa-chevron-right"
-                                                                            style="margin-left: 50px; color: #FF6F00"></i></a>
+          <button (click)="onDeleteTuning(t.id)" class="button1 btn-pers" *ngIf="onisAdmin()"><i class="fa fa-remove"></i></button>
+          <a class="c-stacked-nav__links--link" href="#" style="margin-left: 5px;">{{t.nomTuning}} <i class="fa fa-chevron-right"
+                                                                            style="margin-left: 20px; color: #FF6F00"></i></a>
         </li>
       </ul>
     </div>
-    <button data-toggle="modal" data-target="#myModal2">Ajouter une nouvelle catégorie</button>
+    <br>
+    <button class="button btn-pers" data-toggle="modal" data-target="#myModal2" *ngIf="onisAdmin()">Ajouter une nouvelle catégorie</button>
   </div>
   <!------------------------------------------------------------------------------------------------------------------>
   <!--Model add new Tuning-->
@@ -86,7 +96,9 @@
           </div>
 
           <p id="btn-modification">
-            <button (click)="onGetTuning(t.id)" data-toggle="modal" data-target="#myModal">Modifier</button>
+            <button class="button btn-pers" (click)="onGetTuning(t.id)" data-toggle="modal" data-target="#myModal" *ngIf="onisAdmin()">
+              Modifier
+            </button>
           </p>
         </div>
         <div class="col-md-5 order-md-1">
@@ -94,7 +106,7 @@
                src="{{this.tuningService.host + '/photo/' + t.id}}">
           <br><br>
           <p>
-            <button (click)="onEditPhoto(t)"><i class="fa fa-edit"></i></button>
+            <button class="button2 btn-pers" (click)="onEditPhoto(t)" *ngIf="onisAdmin()"><i class="fa fa-edit"></i></button>
           </p>
           <p *ngIf="editPhoto && currentPhoto===t">
             <input type="file" (change)="onSelectedFile($event)">
@@ -108,5 +120,6 @@
   </div>
 </div>
 <br><br>
+</div>
 <!-------------------------------------------------------------------------------------------------------------------->
 
