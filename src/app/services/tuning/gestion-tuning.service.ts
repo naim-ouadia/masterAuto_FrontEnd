@@ -27,4 +27,20 @@ export class GestionTuningService {
     });
     return this.http.request(req);
   }
+
+  addTuning(data) {
+    return this.http.post(this.host + '/creatTuning', data);
+  }
+
+  getTuning(id) {
+    return this.http.get(this.host + '/tuningById/' + id);
+  }
+
+  updateTuning(id, data) {
+    return this.http.put(this.host + '/updateTuning/' + id, data);
+  }
+
+  deleteTuning(id) {
+    return this.http.delete(this.host + '/deleteTuning/' + id);
+  }
 }

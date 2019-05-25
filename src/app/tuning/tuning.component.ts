@@ -8,13 +8,14 @@ import {HttpEventType, HttpResponse} from "@angular/common/http";
   styleUrls: ['./tuning.component.css']
 })
 export class TuningComponent implements OnInit {
-  tunings;
-  i = 0;
+  private tunings;
+  private i = 0;
   private editPhoto: boolean;
   private currentPhoto;
   private selectedFilles;
   private progresse;
   private currentFileUpload;
+  private tuning;
 
   constructor(private tuningService: GestionTuningService) {
   }
@@ -32,16 +33,6 @@ export class TuningComponent implements OnInit {
     });
   }
 
-  onStyle() {
-    if (this.i === 0) {
-      this.i++;
-      return this.i;
-    } else if (this.i === 1) {
-      this.i--;
-      return this.i;
-    }
-  }
-
   onEditPhoto(data) {
     this.editPhoto = true;
     this.currentPhoto = data;
@@ -55,7 +46,7 @@ export class TuningComponent implements OnInit {
     this.progresse = 0;
     this.currentFileUpload = this.selectedFilles.item(0);
     this.tuningService.upLoadData(this.currentFileUpload, this.currentPhoto.id).subscribe(event => {
-      if (event.type == HttpEventType.UploadProgress) {
+      if (event.type === HttpEventType.UploadProgress) {
         this.progresse = Math.round(100 * event.loaded / event.total);
       } else if (event instanceof HttpResponse) {
         alert('données sont chargés avec succés');
@@ -64,4 +55,39 @@ export class TuningComponent implements OnInit {
       alert("error de chargement de l'image, merci d'essayer");
     });
   }
+
+  onGetTuning(id) {
+    this.tuningService.getTuning(id).subscribe(data => {
+      this.tuning = data;
+    }, err => {
+      console.log('error de trouver le tuning by id');
+    });
+  }
+
+  onUpdateTuning(data) {
+    this.tuningService.updateTuning(this.tuning.id, data).subscribe(resp => {
+      this.onGetAllTuning();
+    }, err => {
+      console.log('error');
+    });
+  }
+
+  onDeleteTuning(id) {
+    let c = confirm('Confirmer pour supprimer');
+    if (!c) return;
+    this.tuningService.deleteTuning(id).subscribe(data => {
+      this.onGetAllTuning();
+    }, err => {
+      console.log('error');
+    });
+  }
+
+  onAddTuning(data) {
+    this.tuningService.addTuning(data).subscribe(resp => {
+      this.onGetAllTuning();
+    }, erro => {
+      console.log('error');
+    });
+  }
+
 }
