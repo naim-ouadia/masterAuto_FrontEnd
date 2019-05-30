@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthentificationService} from '../services/client/authentification.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-ath',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ATHComponent implements OnInit {
 
-  constructor() { }
+  private authenticated;
 
-  ngOnInit() {
+  constructor(private authService: AuthentificationService, private router: Router) {
   }
 
+  ngOnInit() {
+    this.authenticated = this.authService.isAuthenticated();
+  }
+
+  onAuthenticated() {
+      this.router.navigateByUrl('Client/Conexion');
+  }
 }

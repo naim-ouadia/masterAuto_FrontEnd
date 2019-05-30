@@ -1,5 +1,29 @@
-<div class="div">
-<p>
-  ath works!
-</p>
+<br><br><br>
+<div class="first-div">
+  <div class="second-div" *ngIf="authenticated==null">
+    <span class="first-a">
+    <a (click)="onAuthenticated()"><strong>Client chez nous ? </strong>Identifiez-vous,pour prendre un Rdv.</a>
+      </span>
+  </div>
+  <div class="third-div">
+    <h1 class="title"><strong>Aide et Dépannage</strong></h1>
+    <div class="input-group">
+      <input type="text" class="form-control first-input" placeholder="Votre demande ? ">
+      <div class="input-group-append">
+        <button class="btn button-recherche" type="button">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+
+    </div>
+    <br>
+    <div class="notice  text-center">
+      <p>Vous pouvez écrire, par exemple :</p>
+      <p> «Mécanique »,«électrique» ou «refroidissement»</p>
+    </div>
+    <button class="first-btn"> Urgences et dépannage <strong><i class="fa fa-chevron-down"
+                                                                style="padding-left: 4px;"></i></strong></button>
+  </div>
+
+
 </div>
