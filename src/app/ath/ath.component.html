@@ -6,7 +6,7 @@
       </span>
   </div>
   <div class="third-div">
-    <h1 class="title"><strong>Aide et Dépannage</strong></h1>
+    <h1 class="title"><strong>Aide et Contact</strong></h1>
     <div class="input-group">
       <input type="text" class="form-control first-input" placeholder="Votre demande ? ">
       <div class="input-group-append">
@@ -21,9 +21,179 @@
       <p>Vous pouvez écrire, par exemple :</p>
       <p> «Mécanique »,«électrique» ou «refroidissement»</p>
     </div>
-    <button class="first-btn"> Urgences et dépannage <strong><i class="fa fa-chevron-down"
-                                                                style="padding-left: 4px;"></i></strong></button>
+    <button class="first-btn">Assistance technique <strong><i class="fa fa-chevron-down"
+                                                              style="padding-left: 4px;"></i></strong>
+    </button>
   </div>
-
-
 </div>
+<!--------------------------------------------------------------------------------------------------------------------->
+<br><br>
+<div class="container">
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Assistance Technique</strong>
+          <h3 class="mb-0">Featured post</h3>
+          <div class="mb-1 text-muted">Nov 12</div>
+          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to
+            additional
+            content.</p>
+          <a href="#" class="stretched-link">Voir plus</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
+               preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#55595c"></rect>
+            <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">Contact</strong>
+          <h3 class="mb-0">Dépannage</h3>
+          <div class="mb-1 text-muted">Nov 11</div>
+          <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional
+            content.</p>
+          <a href="#" class="stretched-link">Voir plus</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
+               preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#55595c"></rect>
+            <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h1 class="title-h1">Assistance Technique & Dépannage</h1>
+    <h2 class="title-h2">Retrouvez les réponses à vos questions portant sur l’installation, l’utilisation et le
+      dépannage de votre mobile ou tablette.</h2>
+  </div>
+  <div class="col-md-10 ">
+    <h1 class="title-h1">Que souhaitez-vous faire ?</h1>
+    <div class="div-a-ath">
+      <button class="first-a-ath" data-toggle="collapse" data-target="#collapse1" (click)="onAllAth()">Changer de
+        piéces
+      </button>
+      <button class="first-a-ath" data-toggle="collapse" data-target="#collapse2" (click)="onAllDepannage()">Dépannage
+      </button>
+      <button class="first-a-ath" data-toggle="collapse" data-target="#collapse3" (click)="onAllFichier()">Consulter les
+        fichiers
+        techniques
+      </button>
+    </div>
+  </div>
+  <!------------collpase changement de pieces ------------------------------------------------------------------------>
+  <div class="container">
+    <div id="collapse1" class="collapse" *ngIf="nbr==='A'">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-inline form-group" *ngIf="aths!=null">
+            <div *ngFor="let a of aths">
+              <a class="sec-a-ath " data-toggle="collapse" data-target="#collapse1-1" (click)="onGetAth(a.id)">{{a.nomAth}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--collpase Dépannage----------------------------------------------------------------------------------------------->
+    <div id="collapse2" class="collapse " *ngIf="nbr==='B'">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-inline form-group" *ngIf="depannages!=null">
+            <div *ngFor="let d of depannages">
+              <a class="sec-a-ath " data-toggle="collapse" data-target="#collapse1-2" (click)="onGetDepannage(d.id)">{{d.nomDepannage}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- collpase Consulter les fichiers techniques---------------------------------------------------------------------->
+    <div id="collapse3" class="collapse " *ngIf="nbr==='C'">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-inline form-group" *ngIf="fichiers!=null">
+            <div *ngFor="let f of fichiers">
+              <a class="sec-a-ath " data-toggle="collapse" data-target="#collapse1-3" (click)="onGetFichier(f.id)">{{f.nomFichier}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- sous collpase changement de piéces ---------------------------------------------------------------------------->
+    <div id="collapse1-1" class="collapse ">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-inline form-group">
+            <div class="div-collpase " *ngIf="athObj!=null">
+              <h1>{{athObj.nomAth}}</h1>
+              <p>{{athObj.discription}} </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--sous collpase depannage-->
+    <div id="collapse1-2" class="collapse ">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-inline form-group">
+            <div class="div-collpase " *ngIf="depannage!=null">
+              <h1>{{depannage.nomDepannage}}</h1>
+              <p>{{depannage.discription}} </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--sous colppase fichier technique -->
+    <div id="collapse1-3" class="collapse ">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-inline form-group">
+            <div class="div-collpase " *ngIf="fichier!=null">
+              <h1>{{fichier.nomFichier}}</h1>
+              <p>{{fichier.discription}} </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--contact--------------------------------------------------------------------------------------------------------->
+  <div class="container">
+    <hr>
+    <div class="col-md-6">
+      <h1 class="title-h1">Contact</h1>
+      <h2 class="title-h2">Retrouvez les contacts les plus utiles en cas d'urgence.</h2>
+    </div>
+    <table class="table table-condensed">
+      <thead>
+      <tr>
+        <th>Nom</th>
+        <th>N° Téléphone</th>
+        <th>Email</th>
+        <th>Spécialité</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>John</td>
+        <td>0600171787</td>
+        <td>john@example.com</td>
+        <td>technicien</td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
