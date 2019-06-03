@@ -40,7 +40,11 @@
 .second-div :hover {
   color: #FF6F00;
 }
-
+.encre {
+  position: relative;
+  top: -60px;
+  visibility: hidden;
+}
 .title {
   color: #FF6F00;
   font-size: 60px;

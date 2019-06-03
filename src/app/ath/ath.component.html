@@ -21,9 +21,13 @@
       <p>Vous pouvez écrire, par exemple :</p>
       <p> «Mécanique »,«électrique» ou «refroidissement»</p>
     </div>
-    <button class="first-btn">Assistance technique <strong><i class="fa fa-chevron-down"
-                                                              style="padding-left: 4px;"></i></strong>
-    </button>
+    <a href="/Ath#assitanceTechnique">
+      <button class="first-btn"> Assistance technique
+        <strong><i
+          class="fa fa-chevron-down"
+          style="padding-left: 4px;"></i></strong>
+      </button>
+    </a>
   </div>
 </div>
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -72,11 +76,14 @@
       </div>
     </div>
   </div>
+
+  <a name="assitanceTechnique" class="encre">1</a>
   <div class="col-md-6">
     <h1 class="title-h1">Assistance Technique & Dépannage</h1>
     <h2 class="title-h2">Retrouvez les réponses à vos questions portant sur l’installation, l’utilisation et le
       dépannage de votre mobile ou tablette.</h2>
   </div>
+
   <div class="col-md-10 ">
     <h1 class="title-h1">Que souhaitez-vous faire ?</h1>
     <div class="div-a-ath">
@@ -122,14 +129,15 @@
         <div class="col-md-12">
           <div class="form-inline form-group" *ngIf="fichiers!=null">
             <div *ngFor="let f of fichiers">
-              <a class="sec-a-ath " data-toggle="collapse" data-target="#collapse1-3" (click)="onGetFichier(f.id)">{{f.nomFichier}}</a>
+              <a class="sec-a-ath " data-toggle="collapse" data-target="#collapse1-3" (click)="onGetFichier(f.id)">{{f.nomFichier}}
+                <i class="fa fa-remove" (click)="onRemoveFichier(f.id)"></i></a>
             </div>
           </div>
         </div>
       </div>
     </div>
     <!-- sous collpase changement de piéces ---------------------------------------------------------------------------->
-    <div id="collapse1-1" class="collapse ">
+    <div id="collapse1-1" class="collapse " *ngIf="nbr==='A' && nbr2 ==='AA'">
       <div class="row">
         <div class="col-md-12">
           <div class="form-inline form-group">
@@ -142,7 +150,7 @@
       </div>
     </div>
     <!--sous collpase depannage-->
-    <div id="collapse1-2" class="collapse ">
+    <div id="collapse1-2" class="collapse " *ngIf="nbr==='B' && nbr2==='BB'">
       <div class="row">
         <div class="col-md-12">
           <div class="form-inline form-group">
@@ -155,7 +163,7 @@
       </div>
     </div>
     <!--sous colppase fichier technique -->
-    <div id="collapse1-3" class="collapse ">
+    <div id="collapse1-3" class="collapse " *ngIf="nbr==='C' && nbr2==='CC'">
       <div class="row">
         <div class="col-md-12">
           <div class="form-inline form-group">
@@ -185,11 +193,11 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>John</td>
-        <td>0600171787</td>
-        <td>john@example.com</td>
-        <td>technicien</td>
+      <tr *ngFor="let c of contacts">
+        <td>{{c.nom}}</td>
+        <td>0{{c.numTel}}</td>
+        <td>{{c.email}}</td>
+        <td>{{c.specialite}}</td>
       </tr>
 
       </tbody>
