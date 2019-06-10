@@ -89,7 +89,7 @@ export class RdvComponent implements OnInit {
 
   onSaveRdv() {
     this.onSaveVoiture();
-    // this.rdvService.saveRdv(this.commentaire);
+    this.rdvService.saveRdv(this.commentaire);
   }
 
   onSaveVoiture() {

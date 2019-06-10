@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
@@ -16,10 +15,15 @@ import {AdminComponent} from './admin/admin.component';
 import {ContactsComponent} from './contacts/contacts.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-import { RdvComponent } from './rdv/rdv.component';
-import { ServiceRapideComponent } from './service-rapide/service-rapide.component';
-import { NotFound404Component } from './not-found404/not-found404.component';
-import { ParametresCompteComponent } from './parametres-compte/parametres-compte.component';
+import {RdvComponent} from './rdv/rdv.component';
+import {ServiceRapideComponent} from './service-rapide/service-rapide.component';
+import {NotFound404Component} from './not-found404/not-found404.component';
+import {ParametresCompteComponent} from './parametres-compte/parametres-compte.component';
+import {TechnicienComponent} from './technicien/technicien.component';
+import {ConnexionTechnicienComponent} from './technicien/connexion-technicien/connexion-technicien.component';
+import {RdvTechnicienComponent} from './technicien/rdv-technicien/rdv-technicien.component';
+
+
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import { ParametresCompteComponent } from './parametres-compte/parametres-compte
     RdvComponent,
     ServiceRapideComponent,
     NotFound404Component,
-    ParametresCompteComponent
+    ParametresCompteComponent,
+    TechnicienComponent,
+    ConnexionTechnicienComponent,
+    RdvTechnicienComponent,
+
   ],
   imports: [
     BrowserModule,

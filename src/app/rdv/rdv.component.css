@@ -13,7 +13,7 @@
   margin: 20px;
 }
 .div-validation{
-  padding-left: 400px;
+  padding-left: 500px;
 }
 .rdv-case{
   cursor: pointer;
@@ -28,4 +28,15 @@
   background-color: white;
   cursor:default;
 }
-
+.title-h1 {
+  font-size: 26px;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.title-h2 {
+  font-weight: 400;
+  line-height: 27px;
+  color: #666;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}

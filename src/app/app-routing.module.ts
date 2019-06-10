@@ -10,7 +10,10 @@ import {InscriptionComponent} from './client/inscription/inscription.component';
 import {RdvComponent} from './rdv/rdv.component';
 import {ServiceRapideComponent} from './service-rapide/service-rapide.component';
 import {NotFound404Component} from './not-found404/not-found404.component';
-import {ParametresCompteComponent} from "./parametres-compte/parametres-compte.component";
+import {ParametresCompteComponent} from './parametres-compte/parametres-compte.component';
+import {ConnexionTechnicienComponent} from './technicien/connexion-technicien/connexion-technicien.component';
+import {RdvTechnicienComponent} from './technicien/rdv-technicien/rdv-technicien.component';
+import {AdminComponent} from './admin/admin.component';
 
 const routes: Routes = [
   {path: 'Accueil', component: BodyComponent},
@@ -20,7 +23,10 @@ const routes: Routes = [
   {path: 'Contacts', component: ContactsComponent},
   {path: 'Client/Conexion', component: ConnexionComponent},
   {path: 'Client/Inscription', component: InscriptionComponent},
+  {path: 'Technicien/Conexion', component: ConnexionTechnicienComponent},
+  {path: 'Technicien/RDV', component: RdvTechnicienComponent},
   {path: 'ParametreCompte', component: ParametresCompteComponent},
+  {path: 'AdminDashboard', component: AdminComponent},
   {path: 'Rdv', component: RdvComponent},
   {path: 'ServiceRapide', component: ServiceRapideComponent},
   {path: '', component: BodyComponent},
