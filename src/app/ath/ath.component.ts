@@ -3,6 +3,7 @@ import {AuthentificationService} from '../services/client/authentification.servi
 import {Router} from '@angular/router';
 import {GestionATHService} from '../services/ATH/gestion-ath.service';
 import {GestionContactService} from '../services/contact/gestion-contact.service';
+import {HttpEventType, HttpResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-ath',
@@ -21,6 +22,11 @@ export class ATHComponent implements OnInit {
   private nbr: string;
   private nbr2: string;
   private contacts;
+  private selectedFilles;
+  private progresse;
+  private currentFileUpload;
+  private currentFichier;
+
 
   constructor(private authService: AuthentificationService, private router: Router, private athService: GestionATHService, private contactService: GestionContactService) {
   }
@@ -33,6 +39,56 @@ export class ATHComponent implements OnInit {
 
   onAuthenticated() {
     this.router.navigateByUrl('Client/Conexion');
+  }
+
+  onAddAth(data) {
+    this.athService.addAth(data).subscribe(resp => {
+      this.onAllAth();
+    }, erro => {
+      console.log('error ');
+    });
+  }
+
+  onUpdateAth(data) {
+    this.athService.updateAth(this.athObj.id, data).subscribe(resp => {
+      this.onAllAth();
+    }, err => {
+      console.log('error');
+    });
+  }
+
+  onDeleteAth(id) {
+    this.athService.deleteAth(id).subscribe(resp => {
+      this.onAllAth();
+      this.nbr2 = 'D';
+    }, err => {
+      console.log('error');
+    });
+  }
+
+  onAddDepannage(data) {
+    this.athService.addDepannage(data).subscribe(rep => {
+      this.onAllDepannage();
+    }, err => {
+      console.log('error');
+    });
+  }
+
+  onUpdateDepannage(data) {
+    this.athService.upDateDepannage(this.depannage.id, data).subscribe(esp => {
+      this.onAllDepannage();
+    }, err => {
+      console.log('error');
+    });
+  }
+
+  onDeleteDepannge(id) {
+    this.athService.deleteDepannage(id).subscribe(resp => {
+      this.onAllDepannage();
+      this.nbr2 = 'D';
+    }, err => {
+      console.log('error');
+    });
   }
 
   onAllAth() {
@@ -104,6 +160,20 @@ export class ATHComponent implements OnInit {
       this.onAllFichier();
     }, err => {
       console.log('error');
+    });
+  }
+
+  uploadFichiterTechnique() {
+    this.progresse = 0;
+    this.currentFileUpload = this.selectedFilles.item(0);
+    this.athService.upLoadData(this.currentFileUpload, this.currentFichier.id).subscribe(event => {
+      if (event.type === HttpEventType.UploadProgress) {
+        this.progresse = Math.round(100 * event.loaded / event.total);
+      } else if (event instanceof HttpResponse) {
+        alert('données sont chargés avec succés');
+      }
+    }, err => {
+      alert("error de chargement de du fichier, merci d'essayer");
     });
   }
 }
