@@ -43,7 +43,7 @@
           <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to
             additional
             content.</p>
-          <a href="#" class="stretched-link">Voir plus</a>
+          <a href="/Ath#assitanceTechnique" class="stretched-link">Voir plus</a>
         </div>
         <div class="col-auto d-none d-lg-block">
           <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@
           <div class="mb-1 text-muted">Nov 11</div>
           <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional
             content.</p>
-          <a href="#" class="stretched-link">Voir plus</a>
+          <a href="/Ath#contacts" class="stretched-link">Voir plus</a>
         </div>
         <div class="col-auto d-none d-lg-block">
           <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
@@ -154,20 +154,47 @@
     <div id="collapse3" class="collapse " *ngIf="nbr==='C'">
       <div class="row container">
         <div class="col-md-12">
+          <div class="container">
+            <br><br>
+            <form #f="ngForm" (ngSubmit)="onAddFichierTechnique(f.value)">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-inline form-group">
+                    <input type="text" class=" form-control margin" ngModel name="nomFichier"
+                           placeholder="Nom De fichier">
+                    <input type="text" class=" form-control margin " ngModel name="discription"
+                           placeholder="Discription">
+                    <input type="file" (change)="onSelectedFileTech($event)">
+                    <button type="submit" class="btn btn-outline-success"
+                            style="background-color: white; color: black;">
+                      Sauvgarder
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
           <table class="table table-striped" *ngIf="fichiers!=null">
             <thead>
             <tr>
               <th>Nom du Fichier Technique</th>
               <th>Discription</th>
               <th>Fichier Technique</th>
+              <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let f of fichiers">
               <td>{{f.nomFichier}}</td>
               <td>{{f.discription}}</td>
-              <td><a href="{{this.athService.host +'/FichierTechnique/fichierPDF/' + f.id}}" target="_blank"
-                     style="color: #FF6F00;">Consulter <i class="fa fa-file-pdf-o" style="padding-left: 15px;"></i></a>
+              <td>
+                <a href="{{this.athService.host +'/FichierTechnique/fichierPDF/' + f.id}}" target="_blank"
+                   style="color: #FF6F00;">Consulter <i class="fa fa-file-pdf-o" style="padding-left: 15px;"></i></a>
+              </td>
+              <td>
+                <button data-toggle="modal" data-target="#myModal2" (click)="onGetFichier(f.id)"><i
+                  class="fa fa-edit"></i></button>
+                <button (click)="onRemoveFichier(f.id)"><i class="fa fa-remove"></i></button>
               </td>
             </tr>
             </tbody>
@@ -213,13 +240,29 @@
     </div>
   </div>
 </div>
-<!--contact--------------------------------------------------------------------------------------------------------->
+<!--contact------------------------------------------------------------------------------------------------------------>
 <div class="container">
   <hr>
+  <a name="contacts" class="encre">1</a>
   <div class="col-md-6">
     <h1 class="title-h1">Contact</h1>
     <h2 class="title-h2">Retrouvez les contacts les plus utiles en cas d'urgence.</h2>
   </div>
+  <form #f="ngForm" (ngSubmit)="onAddContact(f.value)">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-inline form-group">
+          <input type="text" class=" form-control margin" ngModel name="nom" placeholder="Nom ">
+          <input type="text" class=" form-control margin" ngModel name="specialite" placeholder="spécialtité">
+          <input type="number" class=" form-control margin" ngModel name="numTel" placeholder="numéro télephone">
+          <input type="text" class=" form-control margin" ngModel name="email" placeholder="Email">
+          <button type="submit" class="btn btn-outline-success" style="background-color: white; color: black;">
+            Ajouter
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
   <div class="container">
     <table class="table table-condensed">
       <thead>
@@ -228,6 +271,7 @@
         <th>N° Téléphone</th>
         <th>Email</th>
         <th>Spécialité</th>
+        <th></th>
       </tr>
       </thead>
       <tbody>
@@ -236,6 +280,11 @@
         <td>0{{c.numTel}}</td>
         <td>{{c.email}}</td>
         <td>{{c.specialite}}</td>
+        <td>
+          <button data-toggle="modal" data-target="#myModal3" (click)="onGetContact(c.id)"><i class="fa fa-edit"></i>
+          </button>
+          <button (click)="onDeleteContact(c.id)"><i class="fa fa-remove"></i></button>
+        </td>
       </tr>
       </tbody>
     </table>
@@ -269,7 +318,7 @@
     </div>
   </div>
 </div>
-<!---Model depannage--------------------------------------------------------------------------------------------->
+<!---Model depannage--------------------------------------------------------------------------------------------------->
 <div class="modal fade" id="myModal1" *ngIf="depannage!=null ">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -288,6 +337,71 @@
         <div class="modal-footer">
           <button type="submit" class="btn btn-outline-success "
                   style="background-color: white; color: black;">Save
+          </button>
+          <button type="button" class="btn btn-outline-danger" data-dismiss="modal"
+                  style="background-color: white; color: black;">Annuler
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--Modal fichier technique-------------------------------------------------------------------------------------------->
+<div class="modal fade" id="myModal2" *ngIf="fichier!=null ">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Merci de modifier le service</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <form #f="ngForm" (ngSubmit)="onUpdateFichierTechnique(f.value)">
+        <div class="modal-body">
+          <input type="text" class=" form-control padding" name="nomFichier"
+                 [(ngModel)]="currentFichier.nomFichier">
+          <br>
+          <input type="text" class=" form-control padding" name="discription"
+                 [(ngModel)]="currentFichier.discription">
+          <input type="file" (change)="onSelectedFileTech($event)">
+          <br>
+        </div>
+        <br>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-outline-success "
+                  style="background-color: white; color: black;" (click)="uploadFichiterTechnique()">Sauvgarder
+          </button>
+          <button type="button" class="btn btn-outline-danger" data-dismiss="modal"
+                  style="background-color: white; color: black;">Annuler
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--Modal Contact------------------------------------------------------------------------------------------------------>
+<div class="modal fade" id="myModal3" *ngIf="contact!=null ">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Merci de modifier les coordonnées</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <form #f="ngForm" (ngSubmit)="onUpdateContact(f.value)">
+        <div class="modal-body">
+          <input type="text" class=" form-control padding" name="nom"
+                 [(ngModel)]="contact.nom">
+          <br>
+          <input type="text" class=" form-control padding" name="specialite"
+                 [(ngModel)]="contact.specialite">
+          <br>
+          <input type="number" class=" form-control padding" name="numTel"
+                 [(ngModel)]="contact.numTel">
+          <br>
+          <input type="email" class=" form-control padding" name="email"
+                 [(ngModel)]="contact.email">
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-outline-success "
+                  style="background-color: white; color: black;">Sauvgarder
           </button>
           <button type="button" class="btn btn-outline-danger" data-dismiss="modal"
                   style="background-color: white; color: black;">Annuler

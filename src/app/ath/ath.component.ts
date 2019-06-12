@@ -22,6 +22,7 @@ export class ATHComponent implements OnInit {
   private nbr: string;
   private nbr2: string;
   private contacts;
+  private contact;
   private selectedFilles;
   private progresse;
   private currentFileUpload;
@@ -91,6 +92,51 @@ export class ATHComponent implements OnInit {
     });
   }
 
+  onAddFichierTechnique(data) {
+    this.athService.addFichier(data).subscribe(resp => {
+      this.currentFichier = resp;
+      this.uploadFichiterTechnique();
+      this.onAllFichier();
+    }, err => {
+      console.log('error');
+    });
+  }
+
+  onUpdateFichierTechnique(data) {
+    this.athService.upDateFichier(this.currentFichier.id, data).subscribe(resp => {
+      this.onAllFichier();
+    }, err => {
+      console.log('error 1');
+    });
+  }
+
+  onSelectedFileTech(event) {
+    this.selectedFilles = event.target.files;
+  }
+
+  uploadFichiterTechnique() {
+    this.progresse = 0;
+    this.currentFileUpload = this.selectedFilles.item(0);
+    this.athService.upLoadData(this.currentFileUpload, this.currentFichier.id).subscribe(event => {
+      if (event.type === HttpEventType.UploadProgress) {
+        this.progresse = Math.round(100 * event.loaded / event.total);
+      } else if (event instanceof HttpResponse) {
+        alert('données sont chargés avec succés');
+      }
+    }, err => {
+      alert("error de chargement de du fichier, merci d'essayer");
+    });
+  }
+
+  onRemoveFichier(id) {
+    this.athService.removeFichier(id).subscribe(resp => {
+      this.onAllFichier();
+    }, err => {
+      console.log('error');
+    });
+  }
+
+
   onAllAth() {
     this.athService.AllAth().subscribe(data => {
       this.aths = data;
@@ -140,6 +186,7 @@ export class ATHComponent implements OnInit {
   onGetFichier(id) {
     this.athService.getFichierById(id).subscribe(data => {
       this.fichier = data;
+      this.currentFichier = data;
       this.nbr2 = 'CC';
     }, err => {
       console.log('error de chargement de fichier');
@@ -154,26 +201,36 @@ export class ATHComponent implements OnInit {
     });
   }
 
-  onRemoveFichier(id) {
-    console.log('test');
-    this.athService.removeFichier(id).subscribe(resp => {
-      this.onAllFichier();
+  onAddContact(data) {
+    this.contactService.addContact(data).subscribe(resp => {
+      this.onGetAllContact();
     }, err => {
       console.log('error');
     });
   }
 
-  uploadFichiterTechnique() {
-    this.progresse = 0;
-    this.currentFileUpload = this.selectedFilles.item(0);
-    this.athService.upLoadData(this.currentFileUpload, this.currentFichier.id).subscribe(event => {
-      if (event.type === HttpEventType.UploadProgress) {
-        this.progresse = Math.round(100 * event.loaded / event.total);
-      } else if (event instanceof HttpResponse) {
-        alert('données sont chargés avec succés');
-      }
+  onGetContact(id) {
+    this.contactService.getContactById(id).subscribe(resp => {
+      this.contact = resp;
     }, err => {
-      alert("error de chargement de du fichier, merci d'essayer");
+      console.log('error');
     });
   }
+
+  onUpdateContact(data) {
+    this.contactService.updateContact(this.contact.id, data).subscribe(resp => {
+      this.onGetAllContact();
+    }, err => {
+      console.log('error');
+    });
+  }
+
+  onDeleteContact(id) {
+    this.contactService.deleteContact(id).subscribe(resp => {
+      this.onGetAllContact();
+    }, err => {
+      console.log('error');
+    });
+  }
+
 }
