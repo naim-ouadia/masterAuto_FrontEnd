@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthentificationService} from '../services/client/authentification.service';
 
 @Component({
   selector: 'app-parametres-compte',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./parametres-compte.component.css']
 })
 export class ParametresCompteComponent implements OnInit {
+  private user;
 
-  constructor() { }
+  constructor(private authService: AuthentificationService) {
+  }
 
   ngOnInit() {
+    this.onGetUser();
+  }
+
+  onGetUser() {
+    this.user = this.authService.user;
   }
 
 }

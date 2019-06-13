@@ -1,4 +1,108 @@
-<div class="div"></div>
-<p>
-  parametres-compte works!
-</p>
+<link rel="stylesheet" type="text/css" href="../assets/css/util.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+<div class="first-div">
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-dark sidebar">
+        <div class="sidebar-sticky">
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Tableau de bord </span>
+          </h6>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active nav-stat" routerLink="/ParametreCompte">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="feather feather-home">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                {{user.nom}} {{user.prenom}}<span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-stat" href="" routerLink="/ParametreCompte/RdvsClient">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="feather feather-file">
+                  <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                  <polyline points="13 2 13 9 20 9"></polyline>
+                </svg>
+                Rendez-vous
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-stat" href="" routerLink="/ParametreCompte/Voiture">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="feather feather-users">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                Voitures
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-----------------------fin de nav ----------------------------------------------------------------------------------->
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <h1 class="title-h1"><strong>Votre Profil</strong></h1>
+        <h2 class="title-h2"> Vous pouvez changer vos coordonnées.</h2>
+        <div class="col-md-5">
+          <span class="txt1 p-b-11">
+					<i class="fa fa-user" style="margin-right:5px;"></i>Nom
+        </span>
+          <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
+            <input class="input100" type="text" [(ngModel)]="user.nom" name="nom">
+            <span class="focus-input100"></span>
+          </div>
+          <span class="txt1 p-b-11">
+						<i class="fa fa-user" style="margin-right:5px;"></i>	Prénom
+        </span>
+          <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
+            <input class="input100" type="text" [(ngModel)]="user.prenom" name="prenom">
+            <span class="focus-input100"></span>
+          </div>
+          <span class="txt1 p-b-11">
+						<i class="fa fa-phone" style="margin-right:5px;"></i> Contacts
+					</span>
+          <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
+            <input class="input100" type="text" [(ngModel)]="user.numTel" name="numTel">
+            <span class="focus-input100"></span>
+          </div>
+          <span class="txt1 p-b-11">
+						<i class="fa fa-envelope" style="margin-right:5px;"></i>Adresse Mail (Login)
+					</span>
+          <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
+            <input class="input100" type="text" [(ngModel)]="user.adresseMail" name="adresseMail">
+            <span class="focus-input100"></span>
+          </div>
+          <span class="txt1 p-b-11">
+					<i class="fa fa-home"></i>	Adresse Postale
+					</span>
+          <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
+            <textarea class="input100" type="text" [(ngModel)]="user.adressePostale" name="adressePostale"></textarea>
+            <span class="focus-input100"></span>
+          </div>
+          <span class="txt1 p-b-11">
+					<i class="fa fa-lock" style="margin-right:5px;"></i>	 Ancien Mot De Passe
+					</span>
+          <div class="wrap-input100 validate-input m-b-12" data-validate="Password is required">
+            <input class="input100" type="password" [(ngModel)]="user.password" name="password">
+            <span class="focus-input100"></span>
+          </div>
+          <span class="txt1 p-b-11">
+					<i class="fa fa-lock" style="margin-right:5px;"></i>	Nouveau Mot De Passe
+					</span>
+          <div class="wrap-input100 validate-input m-b-12" data-validate="Password is required">
+            <input class="input100" type="password" [(ngModel)]="user.password" name="password">
+            <span class="focus-input100"></span>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>

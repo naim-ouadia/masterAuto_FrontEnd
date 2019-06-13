@@ -23,6 +23,8 @@ import {TechnicienComponent} from './technicien/technicien.component';
 import {ConnexionTechnicienComponent} from './technicien/connexion-technicien/connexion-technicien.component';
 import {RdvTechnicienComponent} from './technicien/rdv-technicien/rdv-technicien.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { VoitureComponent } from './client/voiture/voiture.component';
+import { RdvClientComponent } from './client/rdv-client/rdv-client.component';
 
 
 @NgModule({
@@ -45,6 +47,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     TechnicienComponent,
     ConnexionTechnicienComponent,
     RdvTechnicienComponent,
+    VoitureComponent,
+    RdvClientComponent,
 
   ],
   imports: [

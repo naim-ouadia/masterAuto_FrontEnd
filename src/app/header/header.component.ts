@@ -10,7 +10,7 @@ import {AuthentificationService} from '../services/client/authentification.servi
 export class HeaderComponent implements OnInit {
 
 
-  user1;
+  private user1;
 
   constructor(private authService: AuthentificationService) {
   }

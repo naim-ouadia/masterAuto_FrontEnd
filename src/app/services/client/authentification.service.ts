@@ -22,7 +22,6 @@ export class AuthentificationService {
   login(data) {
     this.http.post(this.host2 + '/login', data, {observe: 'response'}).subscribe(resp => {
       let jwt = resp.headers.get('Authorization');
-      console.log(jwt);
       this.saveToken(jwt);
       this.router.navigateByUrl('Accueil');
       this.loadNameUser();
