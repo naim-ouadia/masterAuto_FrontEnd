@@ -5,13 +5,13 @@ import {GestionATHService} from '../services/ATH/gestion-ath.service';
 import {GestionContactService} from '../services/contact/gestion-contact.service';
 import {HttpEventType, HttpResponse} from '@angular/common/http';
 
+
 @Component({
   selector: 'app-ath',
   templateUrl: './ath.component.html',
   styleUrls: ['./ath.component.css']
 })
 export class ATHComponent implements OnInit {
-
   private authenticated;
   private aths;
   private athObj;
@@ -27,6 +27,8 @@ export class ATHComponent implements OnInit {
   private progresse;
   private currentFileUpload;
   private currentFichier;
+  private chaineString: string;
+  private contactsCherche;
 
 
   constructor(private authService: AuthentificationService, private router: Router, private athService: GestionATHService, private contactService: GestionContactService) {
@@ -37,6 +39,7 @@ export class ATHComponent implements OnInit {
     this.authenticated = this.authService.isAuthenticated();
     this.onGetAllContact();
   }
+
 
   onAuthenticated() {
     this.router.navigateByUrl('Client/Conexion');
@@ -228,6 +231,14 @@ export class ATHComponent implements OnInit {
   onDeleteContact(id) {
     this.contactService.deleteContact(id).subscribe(resp => {
       this.onGetAllContact();
+    }, err => {
+      console.log('error');
+    });
+  }
+
+  onChercheContact() {
+    this.contactService.chercheContact(this.chaineString).subscribe(resp => {
+      this.contactsCherche = resp;
     }, err => {
       console.log('error');
     });
