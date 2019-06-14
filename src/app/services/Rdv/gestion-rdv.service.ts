@@ -9,10 +9,10 @@ import {InfosService} from '../client/infos.service';
 })
 export class GestionRdvService {
 
-  user;
-  date;
+  private user;
+  private date;
 
-  constructor(private http: HttpClient, private infosClienService: InfosService ) {
+  constructor(private http: HttpClient, private infosClienService: InfosService) {
   }
 
   private host: string = 'http://localhost:8099/master_Auto';
@@ -46,6 +46,10 @@ export class GestionRdvService {
     }), err => {
       console.log('error de save RDV');
     };
+  }
+
+  getRdvClient(id) {
+    return this.http.get(this.host + '/Rdvs/listRdvsCient/' + id);
   }
 
 }

@@ -19,14 +19,5 @@ export class AppComponent implements OnInit {
   }
 
 
-  isAdmin() {
-    return this.authService.isAdmin();
-  }
-
-  isUser() {
-    return this.authService.isUser();
-  }
-
-
 }
 

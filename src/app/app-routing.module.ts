@@ -16,6 +16,9 @@ import {RdvTechnicienComponent} from './technicien/rdv-technicien/rdv-technicien
 import {AdminComponent} from './admin/admin.component';
 import {RdvClientComponent} from './client/rdv-client/rdv-client.component';
 import {VoitureComponent} from './client/voiture/voiture.component';
+import {TechniciensComponent} from './admin/techniciens/techniciens.component';
+import {ClientsComponent} from './admin/clients/clients.component';
+import {AllRdvComponent} from './admin/all-rdv/all-rdv.component';
 
 const routes: Routes = [
   {path: 'Accueil', component: BodyComponent},
@@ -30,6 +33,9 @@ const routes: Routes = [
   {path: 'ParametreCompte', component: ParametresCompteComponent},
   {path: 'ParametreCompte/RdvsClient', component: RdvClientComponent},
   {path: 'ParametreCompte/Voiture', component: VoitureComponent},
+  {path: 'GestionDesComptes/techniciens', component: TechniciensComponent},
+  {path: 'GestionDesComptes/Clients', component: ClientsComponent},
+  {path: 'Rendez-vous', component: AllRdvComponent},
   {path: 'AdminDashboard', component: AdminComponent},
   {path: 'Rdv', component: RdvComponent},
   {path: 'ServiceRapide', component: ServiceRapideComponent},

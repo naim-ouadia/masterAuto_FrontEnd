@@ -10,7 +10,7 @@
           </h6>
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link active nav-stat" routerLink="/ParametreCompte">
+              <a class="nav-link active nav-stat title-h-board" routerLink="/ParametreCompte">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                      class="feather feather-home">
@@ -21,7 +21,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-stat" href="" routerLink="/ParametreCompte/RdvsClient">
+              <a class="nav-link nav-stat title-h-board" href="" routerLink="/ParametreCompte/RdvsClient">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                      class="feather feather-file">
@@ -32,7 +32,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-stat" href="" routerLink="/ParametreCompte/Voiture">
+              <a class="nav-link nav-stat title-h-board" href="" routerLink="/ParametreCompte/Voiture">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                      class="feather feather-users">
@@ -49,58 +49,61 @@
       </nav>
       <!-----------------------fin de nav ----------------------------------------------------------------------------------->
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <h1 class="title-h1"><strong>Votre Profil</strong></h1>
+        <h1 class="title-h1"><strong>Paramétres du compte </strong></h1>
         <h2 class="title-h2"> Vous pouvez changer vos coordonnées.</h2>
         <div class="col-md-5">
+          <form #f="ngForm" (ngSubmit)="onUpDateUser(f.value)">
           <span class="txt1 p-b-11">
 					<i class="fa fa-user" style="margin-right:5px;"></i>Nom
         </span>
-          <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
-            <input class="input100" type="text" [(ngModel)]="user.nom" name="nom">
-            <span class="focus-input100"></span>
-          </div>
-          <span class="txt1 p-b-11">
+            <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
+              <input class="input100" type="text" [(ngModel)]="user.nom" name="nom">
+              <span class="focus-input100"></span>
+            </div>
+            <span class="txt1 p-b-11">
 						<i class="fa fa-user" style="margin-right:5px;"></i>	Prénom
         </span>
-          <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
-            <input class="input100" type="text" [(ngModel)]="user.prenom" name="prenom">
-            <span class="focus-input100"></span>
-          </div>
-          <span class="txt1 p-b-11">
+            <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
+              <input class="input100" type="text" [(ngModel)]="user.prenom" name="prenom">
+              <span class="focus-input100"></span>
+            </div>
+            <span class="txt1 p-b-11">
 						<i class="fa fa-phone" style="margin-right:5px;"></i> Contacts
 					</span>
-          <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
-            <input class="input100" type="text" [(ngModel)]="user.numTel" name="numTel">
-            <span class="focus-input100"></span>
-          </div>
-          <span class="txt1 p-b-11">
+            <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
+              <input class="input100" type="text" [(ngModel)]="user.numTel" name="numTel">
+              <span class="focus-input100"></span>
+            </div>
+            <span class="txt1 p-b-11">
 						<i class="fa fa-envelope" style="margin-right:5px;"></i>Adresse Mail (Login)
 					</span>
-          <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
-            <input class="input100" type="text" [(ngModel)]="user.adresseMail" name="adresseMail">
-            <span class="focus-input100"></span>
-          </div>
-          <span class="txt1 p-b-11">
+            <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
+              <input class="input100" type="text" [(ngModel)]="user.adresseMail" name="adresseMail">
+              <span class="focus-input100"></span>
+            </div>
+            <span class="txt1 p-b-11">
 					<i class="fa fa-home"></i>	Adresse Postale
 					</span>
-          <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
-            <textarea class="input100" type="text" [(ngModel)]="user.adressePostale" name="adressePostale"></textarea>
-            <span class="focus-input100"></span>
-          </div>
-          <span class="txt1 p-b-11">
+            <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
+              <textarea class="input100" type="text" [(ngModel)]="user.adressePostale" name="adressePostale"></textarea>
+              <span class="focus-input100"></span>
+            </div>
+            <span class="txt1 p-b-11">
 					<i class="fa fa-lock" style="margin-right:5px;"></i>	 Ancien Mot De Passe
 					</span>
-          <div class="wrap-input100 validate-input m-b-12" data-validate="Password is required">
-            <input class="input100" type="password" [(ngModel)]="user.password" name="password">
-            <span class="focus-input100"></span>
-          </div>
-          <span class="txt1 p-b-11">
+            <div class="wrap-input100 validate-input m-b-12" data-validate="Password is required">
+              <input class="input100" type="password" [(ngModel)]="user.password" name="password">
+              <span class="focus-input100"></span>
+            </div>
+            <span class="txt1 p-b-11">
 					<i class="fa fa-lock" style="margin-right:5px;"></i>	Nouveau Mot De Passe
 					</span>
-          <div class="wrap-input100 validate-input m-b-12" data-validate="Password is required">
-            <input class="input100" type="password" [(ngModel)]="user.password" name="password">
-            <span class="focus-input100"></span>
-          </div>
+            <div class="wrap-input100 validate-input m-b-12" data-validate="Password is required">
+              <input class="input100" type="password" [(ngModel)]="user.password" name="password">
+              <span class="focus-input100"></span>
+            </div>
+            <button class="btn btn-outline-success">Sauvgarder</button>
+          </form>
         </div>
       </main>
     </div>

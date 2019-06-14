@@ -25,4 +25,8 @@ export class InfosService {
   getUser() {
     return this.http.get(this.host + '/adresseMail/' + this.loadUser());
   }
+
+  updateUser(id, data) {
+    return this.http.put(this.host + '/upDateUser/' + id, data);
+  }
 }

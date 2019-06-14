@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthentificationService} from '../services/client/authentification.service';
+import {InfosService} from '../services/client/infos.service';
 
 @Component({
   selector: 'app-parametres-compte',
@@ -9,7 +10,7 @@ import {AuthentificationService} from '../services/client/authentification.servi
 export class ParametresCompteComponent implements OnInit {
   private user;
 
-  constructor(private authService: AuthentificationService) {
+  constructor(private authService: AuthentificationService, private infosCompteService: InfosService) {
   }
 
   ngOnInit() {
@@ -18,6 +19,13 @@ export class ParametresCompteComponent implements OnInit {
 
   onGetUser() {
     this.user = this.authService.user;
+  }
+
+  onUpDateUser(data) {
+    this.infosCompteService.updateUser(this.user.id, data).subscribe(resp => {
+    }, err => {
+      console.log('error');
+    });
   }
 
 }
