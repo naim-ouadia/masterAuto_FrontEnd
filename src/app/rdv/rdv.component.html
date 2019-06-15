@@ -14,7 +14,7 @@
       <option *ngFor="let m of marques" (click)="selectedMarque===m">{{m.nomMarque}}</option>
     </select>
     <select class="btn   dropdown-toggle" [(ngModel)]="selectedModel">
-      <option> Model</option>
+      <option> Modèle</option>
       <option *ngFor="let mod of models" (click)="selectedModel===mod"> {{mod.nomModel}}</option>
     </select>
     <select class="btn   dropdown-toggle" [(ngModel)]="selectedCategorie">

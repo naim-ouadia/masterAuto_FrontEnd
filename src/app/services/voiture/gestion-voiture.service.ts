@@ -11,12 +11,6 @@ export class GestionVoitureService {
   }
 
   saveVoiture(marque, model, categorie, carburant) {
-
-    this.http.get(this.host + '/marque/' + marque + '/model/' + model + '/categorie/' + categorie + '/caraburant/' + carburant).subscribe(resp => {
-      console.log('enregistrement de la voiture ok 2');
-    }), err => {
-      console.log('error de lancer la requete');
-    };
-
+    return this.http.get(this.host + '/marque/' + marque + '/model/' + model + '/categorie/' + categorie + '/caraburant/' + carburant);
   }
 }

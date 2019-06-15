@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {GestionRdvService} from '../services/Rdv/gestion-rdv.service';
 import {GestionVoitureService} from '../services/voiture/gestion-voiture.service';
+import {InfosService} from '../services/client/infos.service';
 
 
 @Component({
@@ -10,9 +11,10 @@ import {GestionVoitureService} from '../services/voiture/gestion-voiture.service
 })
 export class RdvComponent implements OnInit {
 
-  constructor(private rdvService: GestionRdvService, private voitureService: GestionVoitureService) {
+  constructor(private rdvService: GestionRdvService, private voitureService: GestionVoitureService, private infosClienService: InfosService) {
   }
 
+  voiture;
   marques;
   models;
   categories;
@@ -22,11 +24,12 @@ export class RdvComponent implements OnInit {
   i;
   cnt = false;
   dates: Array<Date> = [];
-  public commentaire: string = '';
+  commentaire: string = '';
   selectedMarque;
   selectedModel;
   selectedCarburant;
   selectedCategorie;
+  user;
 
 
   ngOnInit() {
@@ -35,6 +38,15 @@ export class RdvComponent implements OnInit {
     this.onGetAllModel();
     this.onGetAllCategorie();
     this.onGetAllTypeCarburant();
+    this.onGetUser();
+  }
+
+  onGetUser() {
+    this.infosClienService.getUser().subscribe(resp => {
+      this.user = resp;
+    }, err => {
+      console.log('err');
+    });
   }
 
   onGetAllMarque() {
@@ -87,13 +99,22 @@ export class RdvComponent implements OnInit {
     this.cnt = false;
   }
 
-  onSaveRdv() {
-    this.onSaveVoiture();
-    this.rdvService.saveRdv(this.commentaire);
+  onSaveVoiture() {
+    this.voitureService.saveVoiture(this.selectedMarque, this.selectedModel, this.selectedCategorie, this.selectedCarburant).subscribe(resp => {
+      this.voiture = resp;
+    }, err => {
+      console.log('error');
+    });
+
   }
 
-  onSaveVoiture() {
-    this.voitureService.saveVoiture(this.selectedMarque, this.selectedModel, this.selectedCategorie, this.selectedCarburant);
+  onSaveRdv() {
+    this.onSaveVoiture();
+    setTimeout(
+      () => {
+        this.rdvService.saveRdv(this.user.id, this.voiture.id, this.commentaire);
+      }, 1000
+    );
 
   }
 

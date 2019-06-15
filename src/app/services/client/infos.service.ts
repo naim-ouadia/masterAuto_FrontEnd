@@ -26,7 +26,24 @@ export class InfosService {
     return this.http.get(this.host + '/adresseMail/' + this.loadUser());
   }
 
+  getAllUser() {
+    return this.http.get(this.host + '/findAllUser');
+  }
+
   updateUser(id, data) {
     return this.http.put(this.host + '/upDateUser/' + id, data);
   }
+
+  deletUser(id) {
+    return this.http.delete(this.host + '/deleteUser/' + id);
+  }
+
+  activetedUser(id) {
+    return this.http.get(this.host + '/activatedClient/' + id);
+  }
+
+  desactivetedUser(id) {
+    return this.http.get(this.host + '/blockedClient/' + id);
+  }
+
 }

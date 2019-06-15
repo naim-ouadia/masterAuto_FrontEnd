@@ -63,9 +63,12 @@ export class AuthentificationService {
     return this.roles.indexOf('User') >= 0;
   }
 
+  isTechnicien() {
+    return this.roles.indexOf('Technicien') >= 0;
+  }
 
   isAuthenticated() {
-    return this.roles && (this.isAdmin() || this.isUser());
+    return this.roles && (this.isAdmin() || this.isUser() || this.isTechnicien());
   }
 
   logOut() {

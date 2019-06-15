@@ -37,10 +37,9 @@ export class GestionRdvService {
     this.date = data;
   }
 
-  saveRdv(commenataire) {
+  saveRdv(idUser, idVoiture, commenataire) {
 
-    this.user = this.infosClienService.loadUser();
-    this.http.get(this.host + '/Rdvs/' + 'adresseMail/' + this.user + '/dateRdv/' + this.date + '/commentaire/' + commenataire
+    this.http.get(this.host + '/Rdvs/id/' + idUser + '/id/' + idVoiture + '/date/' + this.date + '/com/' + commenataire
     ).subscribe(resp => {
       console.log('enregistrement ok ');
     }), err => {
