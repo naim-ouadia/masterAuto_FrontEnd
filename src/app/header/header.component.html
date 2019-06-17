@@ -38,7 +38,8 @@
         <div class="dropdown-menu">
           <a class="dropdown-item" routerLink="Client/Conexion" *ngIf="!isAuthenticated()">Se Connecter</a>
           <a class="dropdown-item" routerLink="Client/Inscription" *ngIf="!isAuthenticated()">S'enregistrer</a>
-          <a class="dropdown-item" routerLink="ParametreCompte" *ngIf="isAuthenticated()">Paramétres du Compte</a>
+          <a class="dropdown-item" routerLink="ParametreCompte" *ngIf="isAuthenticated()"
+             (click)="onRedirectToCompte()">Paramétres du Compte</a>
           <a class="dropdown-item" routerLink="Accueil" *ngIf="isAuthenticated()" (click)="onLogOut()">Déconnexion</a>
         </div>
       </li>

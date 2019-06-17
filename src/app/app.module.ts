@@ -20,7 +20,6 @@ import {ServiceRapideComponent} from './service-rapide/service-rapide.component'
 import {NotFound404Component} from './not-found404/not-found404.component';
 import {ParametresCompteComponent} from './parametres-compte/parametres-compte.component';
 import {TechnicienComponent} from './technicien/technicien.component';
-import {ConnexionTechnicienComponent} from './technicien/connexion-technicien/connexion-technicien.component';
 import {RdvTechnicienComponent} from './technicien/rdv-technicien/rdv-technicien.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { VoitureComponent } from './client/voiture/voiture.component';
@@ -49,7 +48,6 @@ import { ClientsComponent } from './admin/clients/clients.component';
     NotFound404Component,
     ParametresCompteComponent,
     TechnicienComponent,
-    ConnexionTechnicienComponent,
     RdvTechnicienComponent,
     VoitureComponent,
     RdvClientComponent,

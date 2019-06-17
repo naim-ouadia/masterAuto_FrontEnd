@@ -27,4 +27,7 @@ export class HeaderComponent implements OnInit {
     this.authService.logOut();
   }
 
+  onRedirectToCompte() {
+    this.authService.redirectToCompte();
+  }
 }

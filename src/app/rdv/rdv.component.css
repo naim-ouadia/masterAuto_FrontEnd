@@ -8,27 +8,37 @@
 .container {
   padding-left: 230px;
 }
-.btn{
 
+.btn {
   margin: 20px;
 }
-.div-validation{
+
+.div-validation {
   padding-left: 500px;
 }
-.rdv-case{
+
+.rdv-case {
   cursor: pointer;
-  background-color:#FF6F00;
+  background-color: #FF6F00;
   color: white;
 }
-.rdv-case:hover{
+
+.rdv-case:hover {
   background-color: white;
   color: #FF6F00;
 }
-.case-vide{
+
+.case-vide {
   background-color: white;
-  cursor:default;
+  cursor: default;
 }
+
 .title-h1 {
+  font-size: 40px;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.title-h1-1 {
   font-size: 26px;
   font-weight: 400;
   font-family: Arial, Helvetica, sans-serif;
@@ -37,6 +47,6 @@
   font-weight: 400;
   line-height: 27px;
   color: #666;
-  font-size: 15px;
+  font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
 }

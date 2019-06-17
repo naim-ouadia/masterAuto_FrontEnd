@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import * as Chart from 'chart.js';
+import {AuthentificationService} from '../services/client/authentification.service';
 
 @Component({
   selector: 'app-admin',
@@ -47,12 +48,14 @@ export class AdminComponent implements OnInit {
       x: 4,
       y: 2500
     }];
+  private user;
 
-  constructor() {
+  constructor(private authService: AuthentificationService) {
   }
 
   ngOnInit() {
     this.onGraph();
+    this.user = this.authService.user;
   }
 
   onGraph() {
@@ -84,6 +87,5 @@ export class AdminComponent implements OnInit {
       }
     });
   }
-
 
 }

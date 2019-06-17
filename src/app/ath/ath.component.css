@@ -40,11 +40,13 @@
 .second-div :hover {
   color: #FF6F00;
 }
+
 .encre {
   position: relative;
   top: -60px;
   visibility: hidden;
 }
+
 .title {
   color: #FF6F00;
   font-size: 60px;
@@ -101,7 +103,6 @@
 
 input::placeholder {
   font-size: 20px;
-  font-weight: bold;
 }
 
 .notice {
@@ -157,5 +158,34 @@ input::placeholder {
 
 .div-collpase {
   padding: 20px;
-  background-color:#cccccc;
+  background-color: #cccccc;
+}
+
+.logo-div2 {
+  padding-left: 300px;
+}
+
+.btn-perso2 {
+  background-color: white;
+  color: #FF6F00;
+  border: 2px solid #FF6F00;
+}
+
+.btn-perso3 {
+  background-color: white;
+  color: red;
+  border: 2px solid red;
+}
+
+.div-perso {
+  padding-left: 35px;
+}
+
+.span-perso {
+  padding-right: 10px;
+}
+.btn-fa{
+  border: none;
+  background-color: white;
+  color: #FF6F00;
 }

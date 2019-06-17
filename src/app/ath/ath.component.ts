@@ -29,6 +29,8 @@ export class ATHComponent implements OnInit {
   private currentFichier;
   private chaineString: string;
   private contactsCherche;
+  private isTech;
+  private isAdmin;
 
 
   constructor(private authService: AuthentificationService, private router: Router, private athService: GestionATHService, private contactService: GestionContactService) {
@@ -38,8 +40,15 @@ export class ATHComponent implements OnInit {
     this.nbr = 'A';
     this.authenticated = this.authService.isAuthenticated();
     this.onGetAllContact();
+    this.onidentification();
   }
 
+  onidentification() {
+    if (this.authenticated) {
+      this.isAdmin = this.authService.isAdmin();
+      this.isTech = this.authService.isTechnicien();
+    }
+  }
 
   onAuthenticated() {
     this.router.navigateByUrl('Client/Conexion');

@@ -1,18 +1,15 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
-import {InfosService} from '../client/infos.service';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class GestionRdvService {
 
-  private user;
   private date;
 
-  constructor(private http: HttpClient, private infosClienService: InfosService) {
+  constructor(private http: HttpClient) {
   }
 
   private host: string = 'http://localhost:8099/master_Auto';
@@ -49,6 +46,15 @@ export class GestionRdvService {
 
   getRdvClient(id) {
     return this.http.get(this.host + '/Rdvs/listRdvsCient/' + id);
+  }
+
+  getRdvParMois(mois) {
+    return this.http.get(this.host + '/Rdvs/mois/' + mois);
+
+  }
+
+  getAllRdv() {
+    return this.http.get(this.host + '/Rdvs/findllRdv');
   }
 
 }

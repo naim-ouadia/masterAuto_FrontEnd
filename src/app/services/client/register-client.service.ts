@@ -14,7 +14,7 @@ export class RegisterClientService {
 
   registerClient(data) {
     this.http.post(this.host + '/users/register', data).subscribe(resp => {
-      this.router.navigateByUrl('Accueil');
+      this.router.navigateByUrl('Client/Conexion');
     }), err => {
       console.log('erreur de save le client');
     };

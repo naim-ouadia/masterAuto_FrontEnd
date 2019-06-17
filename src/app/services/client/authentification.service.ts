@@ -90,4 +90,14 @@ export class AuthentificationService {
     });
   }
 
+  redirectToCompte() {
+    if (this.isUser()) {
+      this.router.navigateByUrl('ParametreCompte');
+    } else if (this.isAdmin()) {
+      this.router.navigateByUrl('AdminDashboard');
+    } else if (this.isTechnicien()) {
+      this.router.navigateByUrl('Technicien/Dashboard');
+    }
+  }
+
 }
