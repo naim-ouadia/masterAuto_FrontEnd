@@ -22,6 +22,10 @@
           <input class="input100" type="password" ngModel name="password">
           <span class="focus-input100"></span>
         </div>
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="errorMessage!=null">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          Adresse Mail ou Mot de passe est incorrect
+        </div>
         <div class="container-login100-form-btn">
           <button type="submit" class="login100-form-btn">
             Se connecter

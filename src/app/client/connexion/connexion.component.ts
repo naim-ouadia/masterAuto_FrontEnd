@@ -12,11 +12,14 @@ export class ConnexionComponent implements OnInit {
   constructor(private authService: AuthentificationService) {
   }
 
+  private errorMessage;
+
   ngOnInit() {
   }
 
   onLogin(data) {
     this.authService.login(data);
+    this.errorMessage = this.authService.errorAuth;
   }
 
 

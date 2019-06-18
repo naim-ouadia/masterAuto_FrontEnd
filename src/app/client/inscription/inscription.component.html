@@ -18,7 +18,7 @@
         <span class="txt1 p-b-11">
 						<i class="fa fa-envelope" style="margin-right:5px;"></i>Adresse Mail (Login)
 					</span>
-        <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
+        <div class="wrap-input100 validate-input m-b-36" data-validate="adresseMail is required">
           <input class="input100" type="text" ngModel name="adresseMail">
           <span class="focus-input100"></span>
         </div>
@@ -26,8 +26,8 @@
         <span class="txt1 p-b-11">
 						<i class="fa fa-phone" style="margin-right:5px;"></i> Contacts
 					</span>
-        <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
-          <input class="input100" type="text" ngModel name="numTel">
+        <div class="wrap-input100 validate-input m-b-36" data-validate="numTel is required">
+          <input class="input100" type="number" ngModel name="numTel">
           <span class="focus-input100"></span>
         </div>
       </div>
@@ -36,14 +36,14 @@
         <span class="txt1 p-b-11">
 						<i class="fa fa-user" style="margin-right:5px;"></i>	Prénom
         </span>
-        <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
+        <div class="wrap-input100 validate-input m-b-36" data-validate="prenom is required">
           <input class="input100" type="text" ngModel name="prenom">
           <span class="focus-input100"></span>
         </div>
         <span class="txt1 p-b-11">
 					<i class="fa fa-home"></i>	Adresse Postale
 					</span>
-        <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
+        <div class="wrap-input100 validate-input m-b-36" data-validate="adressePostale is required">
           <input class="input100" type="text" ngModel name="adressePostale">
           <span class="focus-input100"></span>
         </div>
@@ -64,7 +64,18 @@
 
         </div>
       </div>
-
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorMessage">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        Formulaire est mal remplie merci de vérifier!
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorPassword">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        Mot de passe est incorrect !
+      </div>
       <!---->
       <div class="container-login100-form-btn" style="padding-left: 340px;">
         <button type="submit" class="login100-form-btn">

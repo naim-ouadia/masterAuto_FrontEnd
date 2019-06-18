@@ -14,20 +14,23 @@ export class AuthentificationService {
   adresseMail: string;
   roles: Array<string>;
   user;
-
+  errorAuth;
 
   constructor(private http: HttpClient, private router: Router, private infos: InfosService) {
   }
 
   login(data) {
-    this.http.post(this.host2 + '/login', data, {observe: 'response'}).subscribe(resp => {
-      let jwt = resp.headers.get('Authorization');
-      this.saveToken(jwt);
-      this.router.navigateByUrl('Accueil');
-      this.loadNameUser();
-    }, err => {
-      console.log(err);
-    });
+    if (data.adresseMail !== '' && data.password !== '') {
+      this.http.post(this.host2 + '/login', data, {observe: 'response'}).subscribe(resp => {
+        let jwt = resp.headers.get('Authorization');
+        this.saveToken(jwt);
+        this.router.navigateByUrl('Accueil');
+        this.loadNameUser();
+      });
+    } else {
+      this.errorAuth = 'login ou mot de passe est incorrect';
+    }
+
   }
 
   saveToken(jwt: string) {
@@ -99,5 +102,6 @@ export class AuthentificationService {
       this.router.navigateByUrl('Technicien/Dashboard');
     }
   }
+
 
 }
